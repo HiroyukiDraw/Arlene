@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support" />
   <title>Arlene Macaraig Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     :root {
       --primary-color: #2c3e50;
@@ -38,14 +38,8 @@
     header {
       background-color: var(--primary-color);
       color: white;
-      padding: 30px 0;
-      text-align: center;
+      padding: 30px 0 10px;
       position: relative;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
     }
 
     .profile-pic {
@@ -55,9 +49,9 @@
       border-radius: 50%;
       border: 4px solid white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin: 0 auto 20px;
       display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .profile-pic:hover {
@@ -65,14 +59,30 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     }
 
+    header h1 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    header p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     nav {
+      background-color: var(--primary-color);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
@@ -98,6 +108,30 @@
       position: absolute;
       top: 10px;
       right: 20px;
+      z-index: 1001;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        padding-bottom: 10px;
+        z-index: 1000;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
     }
 
     section {
@@ -111,7 +145,8 @@
       margin-bottom: 20px;
     }
 
-    section p, section ul {
+    section p,
+    section ul {
       font-size: 1.1rem;
       margin-bottom: 15px;
     }
@@ -146,7 +181,8 @@
       gap: 15px;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       padding: 10px;
       font-size: 1rem;
       border: 1px solid #ccc;
@@ -185,7 +221,6 @@
       padding: 20px 0;
     }
 
-    /* Back to top button */
     #backToTop {
       display: none;
       position: fixed;
@@ -208,61 +243,59 @@
       background-color: #217dbb;
     }
 
-    /* Responsive styles */
-    @media screen and (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--primary-color);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        padding-bottom: 10px;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
+    .btn:hover {
+      background-color: #217dbb;
     }
   </style>
 </head>
+
 <body>
   <header>
+    <div class="hamburger" id="hamburger">&#9776;</div>
     <div class="container">
-      <img src="Hayss.jpg" alt="Portrait of Arlene Macaraig" class="profile-pic" />
+      <img src="Ate.jpg" alt="Portrait of Arlene Macaraig" class="profile-pic" />
       <h1>Arlene Macaraig</h1>
-      <p>Sr. Accounts Payable Specialist - Travel and Expense | SAP - L1 Support</p>
-      <nav>
-        <div class="hamburger" id="hamburger">&#9776;</div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <p>Sr. Accounts Payable Specialist | SAP L1 Support | Travel and Expense Expert</p>
     </div>
+    <nav>
+      <div class="nav-container">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
     <section id="home">
       <div class="container">
-        <h2>Welcome</h2>
-        <p>Discover my professional journey and featured work.</p>
+        <p>Welcome to my personal portfolio! I am Arlene Macaraig, a seasoned Sr. Accounts Payable Specialist with expertise in managing Travel & Expense and providing SAP L1 support. I am dedicated to streamlining financial processes and providing solutions that optimize workflows.</p>
+        <p>With a deep understanding of both the technical and financial sides of business, I strive to help organizations improve their accounts payable operations and enhance overall efficiency. Here, you can learn more about my skills, experience, and the projects I've worked on.</p>
+        <p>If you're interested in collaborating or have any inquiries, feel free to reach out through my contact page!</p>
+        <a href="#portfolio" class="btn">Explore My Portfolio</a>
       </div>
     </section>
 
     <section id="about">
       <div class="container">
         <h2>About Me</h2>
-        <p>With years of experience in Accounts Payable and SAP support, I am dedicated to delivering high-quality results and optimizing financial workflows.</p>
+        <p>With over X years of experience in Accounts Payable, Travel and Expense management, and SAP L1 support, I am dedicated to delivering quality results and ensuring efficient financial processes.</p>
         <h3>Skills & Experience</h3>
         <ul>
           <li>Accounts Payable - Travel & Expense</li>
@@ -294,8 +327,8 @@
           <button type="submit">Send Message</button>
         </form>
         <div class="social-links">
-          <a href="https://www.instagram.com/jusmac_88?igsh=eHI0cXB0cmlza3Zz">Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
+          <a href="https://www.instagram.com/jusmac_88">Instagram</a>
+          <a href="https://www.facebook.com/arlene.mjiares.macaraig">Facebook</a>
         </div>
       </div>
     </section>
@@ -305,4 +338,20 @@
     <div class="container">
       <p>&copy; 2025 Arlene Macaraig. All rights reserved.</p>
     </div>
-  </footer
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('navLinks').classList.remove('show');
+      });
+    });
+  </script>
+</body>
+
+</html>
