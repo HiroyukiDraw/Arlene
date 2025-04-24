@@ -215,7 +215,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.9);
+      background-color: rgba(0, 0, 0, 0.9);
     }
 
     .modal-content {
@@ -228,8 +228,12 @@
     }
 
     @keyframes zoom {
-      from { transform: scale(0.7); }
-      to { transform: scale(1); }
+      from {
+        transform: scale(0.7);
+      }
+      to {
+        transform: scale(1);
+      }
     }
 
     .close {
@@ -240,6 +244,22 @@
       font-size: 40px;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     @media screen and (max-width: 768px) {
@@ -307,7 +327,7 @@
     <div class="container">
       <h2>About Me</h2>
       <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-      <h3>Competencies:</h3>
+       <h3>Competencies:</h3>
       <ul>
         <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
         <li>Experience in the end-to-end Travel & Expense process</li>
@@ -345,10 +365,11 @@
 </ul>
     </div>
   </section>
-  <<section id="portfolio">
+
+  <section id="portfolio">
     <div class="container">
       <h2>Professional Portfolio</h2>
-      <h3>Project 1 – SAP Concur Subject-Matter-Expert (SME)</h3>
+<h3>Project 1 – SAP Concur Subject-Matter-Expert (SME)</h3>
             <p>Key Responsibilities:</p>
             <ul>
                 <li>Act as the go-to expert for all things SAP Concur.</li>
@@ -389,7 +410,7 @@
   <section id="implementations">
     <div class="container">
       <h2>Project Implementations and Travel and Expense Management</h2>
-      <h3>1 – Asia Pacific (APAC) Implementations</h3>
+       <h3>1 – Asia Pacific (APAC) Implementations</h3>
                   <ul>
                 <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
                 <li><strong>🇹🇭 Thailand:</strong> Transitions Optical Thailand, EssilorLuxottica Wholesale (Thailand) Ltd, Luxottica Thailand Ltd</li>
@@ -411,7 +432,7 @@
   <section id="testimonials" class="testimonial-section">
     <div class="container">
       <h2>Testimonials</h2>
-         <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p>
+      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p>
             <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p>
             <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
     </div>
@@ -445,21 +466,20 @@
     <img class="modal-content" id="modalImg">
   </div>
 
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
   <script>
+    // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-      });
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // Zoom modal logic
+    // Image zoom modal
     const modal = document.getElementById("imgModal");
     const modalImg = document.getElementById("modalImg");
     const closeModal = document.querySelector(".close");
@@ -471,16 +491,17 @@
       });
     });
 
-    closeModal.onclick = () => {
-      modal.style.display = "none";
-    };
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
-    window.onclick = (e) => {
-      if (e.target === modal) modal.style.display = "none";
-    };
+    // Back to top logic
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
-</body>
-</html>
-
 </body>
 </html>
