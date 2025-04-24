@@ -262,6 +262,28 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skill-card {
+      background-color: white;
+      padding: 15px 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
     @media screen and (max-width: 768px) {
       nav ul {
         display: none;
@@ -295,7 +317,8 @@
   </style>
 </head>
 <body>
-  <header>
+
+ <header>
     <div class="container">
       <img src="Hayss.jpg" alt="Arlene Macaraig" class="profile-pic" />
       <h1>Arlene Macaraig</h1>
@@ -329,48 +352,31 @@
 </section>
 
 
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-       <h3>Competencies:</h3>
-      <ul>
-        <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
-        <li>Experience in the end-to-end Travel & Expense process</li>
-        <li>Exposure to ERP platforms - SAP preferred</li>
-        <li>Above average English communication skills, both verbal and written</li>
-        <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
-        <li>Highly analytical and comprehensive problem-solving skills</li>
-        <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
-        <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
-        <li>Great sense of urgency and ability to step up whenever the need arises</li>
-        <li>Positive attitude and exemplary self-leadership skills</li>
-        <li>Self-motivated, independent, and can work with minimal supervision</li>
-        <li>Collaborative and team-oriented</li>
-        <li>Showcases professionalism and a role model to more junior staff</li>
-        <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
-      </ul>
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>Motivated and results-driven Senior Accounts Payable Specialist...</p>
 
-      <h3>Key Skills:</h3>
-<ul>
-  <li>Expense Reporting</li>
-  <li>Expense Policy Compliance</li>
-  <li>Integration with ERP Systems</li>
-  <li>Travel Management</li>
-  <li>System Troubleshooting</li>
-  <li>Data Analysis & Reporting</li>
-  <li>Process Optimization</li>
-  <li>Invoice Processing</li>
-  <li>Vendor Management</li>
-  <li>Reconciliation</li>
-  <li>Compliance & Accuracy</li>
-  <li>Data Entry & Management</li>
-  <li>Automation Tools</li>
-  <li>Attention to Detail</li>
-  <li>Problem Solving</li>
-</ul>
+    <h3>Key Skills:</h3>
+    <div class="skills-grid">
+      <div class="skill-card">Expense Reporting</div>
+      <div class="skill-card">Expense Policy Compliance</div>
+      <div class="skill-card">Integration with ERP Systems</div>
+      <div class="skill-card">Travel Management</div>
+      <div class="skill-card">System Troubleshooting</div>
+      <div class="skill-card">Data Analysis & Reporting</div>
+      <div class="skill-card">Process Optimization</div>
+      <div class="skill-card">Invoice Processing</div>
+      <div class="skill-card">Vendor Management</div>
+      <div class="skill-card">Reconciliation</div>
+      <div class="skill-card">Compliance & Accuracy</div>
+      <div class="skill-card">Data Entry & Management</div>
+      <div class="skill-card">Automation Tools</div>
+      <div class="skill-card">Attention to Detail</div>
+      <div class="skill-card">Problem Solving</div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="portfolio">
     <div class="container">
