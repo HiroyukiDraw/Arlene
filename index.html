@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -196,14 +197,24 @@
             flex-wrap: wrap;
         }
 
-        .image-gallery img {
-            width: 30%;
+        .zoom-wrapper {
+            position: relative;
+            overflow: hidden;
+            cursor: zoom-in;
+            margin-bottom: 20px;
+        }
+
+        .zoomable-img {
+            transition: transform 0.3s ease;
+            width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease-in-out;
-            cursor: zoom-in;
+        }
+
+        .zoomed {
+            transform: scale(2);
+            cursor: zoom-out;
         }
 
         .testimonial-section {
@@ -287,9 +298,9 @@
         }
     </style>
 </head>
+
 <body>
-    <!-- existing content stays unchanged... -->
-      <header>
+    <header>
         <div class="container">
             <img src="Hayss.jpg" alt="Arlene Macaraig" class="profile-pic">
             <h1>Arlene Macaraig</h1>
@@ -323,7 +334,7 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 years of expertise in managing in financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p> 
+            <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 years of expertise in managing in financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
         </div>
     </section>
 
@@ -331,84 +342,38 @@
         <div class="container">
             <h2>Key Skills</h2>
             <div class="key-skills">
-                <div class="skill-box">Expense Reporting</div>
-                <div class="skill-box">Expense Policy Compliance</div>
-                <div class="skill-box">Integration with ERP Systems</div>
-                <div class="skill-box">Travel Management</div>
-                <div class="skill-box">System Troubleshooting</div>
-                <div class="skill-box">Data Analysis & Reporting</div>
-                <div class="skill-box">Process Optimization</div>
-                <div class="skill-box">Invoice Processing</div>
-                <div class="skill-box">Vendor Management</div>
-                <div class="skill-box">Reconciliation</div>
-                <div class="skill-box">Compliance & Accuracy</div>
-                <div class="skill-box">Data Entry & Management</div>
-                <div class="skill-box">Automoation Tools</div>
-                <div class="skill-box">Attention to Detail</div>
-                <div class="skill-box">Problem Solving</div>
+              <div class="skill-box">Expense Reporting</div>
+              <div class="skill-box">Expense Policy Compliance</div>
+              <div class="skill-box">Integration with ERP Systems</div>
+              <div class="skill-box">Travel Management</div>
+              <div class="skill-box">System Troubleshooting</div>
+              <div class="skill-box">Data Analysis & Reporting</div>
+              <div class="skill-box">Process Optimization</div>
+              <div class="skill-box">Invoice Processing</div>
+              <div class="skill-box">Vendor Management</div>
+              <div class="skill-box">Reconciliation</div>
+              <div class="skill-box">Compliance & Accuracy</div>
+              <div class="skill-box">Data Entry & Management</div>
+              <div class="skill-box">Automoation Tools</div>
+              <div class="skill-box">Attention to Detail</div>
+              <div class="skill-box">Problem Solving</div>
             </div>
         </div>
     </section>
 
     <section id="portfolio">
         <div class="container">
-            <h2>Professional Portfolio</h2>
-            <h3>Project 1 – SAP Concur Subject-Matter-Expert (SME)</h3>
-            <p>Key Responsibilities:</p>
-            <ul>
-                <li>Act as the go-to expert for all things SAP Concur.</li>
-                <li>Provide functional and technical support to users.</li>
-                <li>Lead the implementation and configuration of Concur modules.</li>
-                <li>Develop and deliver training materials and user guides.</li>
-                <li>Analyze business processes and recommend enhancements.</li>
-                <li>Collaborate cross-functionally with other departments.</li>
-                <li>Ensure compliance with policies, tax laws, and audit requirements.</li>
-                <li>Perform knowledge transfer and best practices sharing.</li>
-                <li>Prepare and provide analysis or insights on reports.</li>
-                <li>Monitor expense interface to SAP.</li>
-            </ul>
-            <h3>Project 2 – Travel & Expense (T&E) Accountant</h3>
-            <ul>
-                <li>Review and audit employee expense reports.</li>
-                <li>Manage corporate card programs and resolve discrepancies.</li>
-                <li>Monitor transactions for fraud and compliance.</li>
-                <li>Partner with HR, payroll, and accounts payable teams.</li>
-                <li>Support month-end and year-end processes.</li>
-                <li>Administer and maintain T&E systems.</li>
-                <li>Lead policy training and user support.</li>
-                <li>Analyze trends and generate reports for cost control.</li>
-            </ul>
-            <h3>Project 3 – Accounts Payable Accountant</h3>
-            <ul>
-                <li>Oversee end-to-end AP processes.</li>
-                <li>Ensure compliance with internal controls and legal regulations.</li>
-                <li>Manage vendor relationships and resolve discrepancies.</li>
-                <li>Perform reconciliations and closing procedures.</li>
-                <li>Assist in system implementations or upgrades.</li>
-                <li>Analyze data to optimize cash flow and working capital.</li>
-                <li>Support audit requests and documentation.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="implementations">
-        <div class="container">
-            <h2>Project Implementations and Travel and Expense Management</h2>
-            <h3>1 – Asia Pacific (APAC) Implementations</h3>
-            <ul>
-                <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
-                <li><strong>🇹🇭 Thailand:</strong> Transitions Optical Thailand, EssilorLuxottica Wholesale (Thailand) Ltd, Luxottica Thailand Ltd</li>
-                <li><strong>🇮🇳 India:</strong> Essilor India Private Limited, Essilor Manufacturing India Private Limited, Rayban Sun Optics India Private Limited, Luxottica India Eyewear Private Limited</li>
-                <li><strong>🇵🇭 Philippines:</strong> Essilor Shared Services, Phil., Inc., Essilor Manufacturing Phils., Inc., Optodev, Inc., Essilor Philippines Optical Distribution, Inc</li>
-                <li><strong>🇦🇺 Australia:</strong> Essilor Australia Pty, Luxottica South Pacific Holding, LUXOTTICA RETAIL AUSTRALIA PTY LTD</li>
-                <li><strong>🇳🇿 New Zealand:</strong> Essilor New Zealand, LUXOTTICA RETAIL NEW ZEALAND LIMITED</li>
-                <li><strong>🇰🇷 South Korea:</strong> Luxottica Korea Ltd</li>
-                <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
-            </ul>
+            <h2>Portfolio</h2>
             <div class="image-gallery">
-                <img src="eyy3.jpg" alt="Project 1">
-                <img src="eyy2.jpg" alt="Project 2">
-                <img src="eyy.jpg" alt="Project 3">
+                <div class="zoom-wrapper">
+                    <img src="eyy3.jpg" alt="Project 1" class="zoomable-img">
+                </div>
+                <div class="zoom-wrapper">
+                    <img src="eyy2.jpg" alt="Project 2" class="zoomable-img">
+                </div>
+                <div class="zoom-wrapper">
+                    <img src="eyy.jpg" alt="Project 3" class="zoomable-img">
+                </div>
             </div>
         </div>
     </section>
@@ -416,68 +381,72 @@
     <section id="testimonials" class="testimonial-section">
         <div class="container">
             <h2>Testimonials</h2>
-            <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p> <br>
-            <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p> <br>
-            <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
+            <div class="testimonial">
+              <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p> <br>
+              <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p> <br>
+              <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
             <h2>Contact Me</h2>
-            <form action="contacts.php" method="post">
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
-                <textarea name="message" placeholder="Your Message" required></textarea>
+            <form action="submit_form.php" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
             <div class="social-links">
-                <a href="https://www.instagram.com/jusmac_88?igsh=eHI0cXB0cmlza3Zz">Instagram</a>
-                <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
-            </div>
+              <a href="https://www.facebook.com/arlene.mjiares.macaraig">Facebook</a>
+              <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
+          </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Arlene Macaraig. All rights reserved.</p>
+            <p>&copy; 2025 Arlene Macaraig. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Go Back to Top Button -->
-    <button id="goTopBtn" title="Go to top">↑</button>
+    <!-- Go to Top Button -->
+    <button id="goTopBtn" onclick="scrollToTop()">↑</button>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-        const navLinksList = document.querySelectorAll('.nav-link');
-        const goTopBtn = document.getElementById("goTopBtn");
-
-        hamburger.addEventListener('click', () => {
+        // Toggle Hamburger Menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('open');
             navLinks.classList.toggle('close');
         });
 
-        navLinksList.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                navLinks.classList.add('close');
+        // Image Zoom Toggle
+        document.querySelectorAll('.zoomable-img').forEach(img => {
+            img.addEventListener('click', () => {
+                img.classList.toggle('zoomed');
             });
         });
 
-        // Show/hide "Go to Top" button
+        // Go to Top Button Visibility
         window.onscroll = function () {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            const goTopBtn = document.getElementById('goTopBtn');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 goTopBtn.style.display = "block";
             } else {
                 goTopBtn.style.display = "none";
             }
         };
 
-        // Scroll to top when button clicked
-        goTopBtn.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // Scroll to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
     </script>
 </body>
+
 </html>
