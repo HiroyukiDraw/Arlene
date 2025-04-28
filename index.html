@@ -67,7 +67,6 @@
       list-style: none;
       margin-top: 20px;
       gap: 20px;
-      transition: max-height 0.3s ease;
     }
 
     nav ul li a {
@@ -102,19 +101,19 @@
 
     @media (max-width: 768px) {
       nav ul {
+        display: none;
         flex-direction: column;
-        background: var(--primary-color);
-        width: 100%;
+        background-color: var(--primary-color);
         position: absolute;
         top: 100%;
-        left: 0;
-        max-height: 0;
-        overflow: hidden;
+        right: 0;
+        width: 200px;
+        text-align: right;
+        padding: 20px;
       }
 
       nav ul.active {
-        max-height: 500px;
-        padding-bottom: 20px;
+        display: flex;
       }
 
       .hamburger {
@@ -229,14 +228,14 @@
 
   <header>
     <div class="container">
-      <img src="Hayss.jpg" alt="Arlene Macaraig">
-      <h1>Arlene Macaraig</h1>
-      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
       <div class="hamburger" id="hamburger">
         <div></div>
         <div></div>
         <div></div>
       </div>
+      <img src="Hayss.jpg" alt="Arlene Macaraig">
+      <h1>Arlene Macaraig</h1>
+      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
       <nav>
         <ul id="nav-links">
           <li><a href="#home">Home</a></li>
@@ -261,20 +260,21 @@
     </div>
   </section>
 
-  <!-- Other sections remain unchanged -->
-
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
-      <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise...</p>
+      <p>Motivated and results-driven Senior Accounts Payable Specialist...</p>
       <h3>Competencies</h3>
       <ul>
-        <!-- Competencies list -->
+        <li>Experience with SAP Concur...</li>
+        <li>End-to-end Travel & Expense...</li>
+        <!-- ... keep your other competencies and skills here -->
       </ul>
-
       <h3>Key Skills:</h3>
       <ul>
-        <!-- Key Skills list -->
+        <li>Expense Reporting</li>
+        <li>Expense Policy Compliance</li>
+        <!-- ... more skills -->
       </ul>
     </div>
   </section>
@@ -282,14 +282,22 @@
   <section id="portfolio">
     <div class="container">
       <h2>Professional Portfolio</h2>
-      <!-- Portfolio content -->
+      <h3>Project 1 – SAP Concur SME</h3>
+      <ul>
+        <li>Act as the go-to expert for SAP Concur...</li>
+        <!-- ... more projects -->
+      </ul>
     </div>
   </section>
 
   <section id="implementations">
     <div class="container">
       <h2>Project Implementations</h2>
-      <!-- Implementations list -->
+      <h3>Asia Pacific (APAC) Implementations</h3>
+      <ul>
+        <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific...</li>
+        <!-- ... other countries -->
+      </ul>
       <div class="image-gallery">
         <img src="eyy3.jpg" alt="Implementation 1">
         <img src="eyy2.jpg" alt="Implementation 2">
@@ -321,6 +329,8 @@
   <script>
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -331,10 +341,7 @@
       }, 3000);
     });
 
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', function() {
       navLinks.classList.toggle('active');
     });
   </script>
