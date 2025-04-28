@@ -172,6 +172,29 @@
       transform: scale(1.05);
     }
 
+    .testimonial-section {
+      background-color: #ffffff;
+      padding: 60px 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .testimonial-section h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .testimonial {
+      max-width: 700px;
+      margin: auto;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #555;
+      border-left: 5px solid var(--accent-color);
+      padding-left: 20px;
+    }
+
+
     form {
       background: white;
       padding: 30px;
@@ -221,6 +244,18 @@
       z-index: 1000;
     }
 
+    
+    .social-links a {
+      margin-right: 15px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+
     footer {
       background: #eee;
       text-align: center;
@@ -248,6 +283,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#implementations">Implementations</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -372,6 +408,16 @@
     </div>
   </section>
 
+    <section id="testimonials" class="testimonial-section">
+    <div class="container">
+      <h2>Testimonials</h2>
+      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
+            <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
+            <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
+    </div>
+  </section>
+
+
   <section id="contact">
     <div class="container">
       <h2>Contact Me</h2>
@@ -381,6 +427,10 @@
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
       </form>
+            <div class="social-links">
+        <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
+      </div>
     </div>
   </section>
 
