@@ -100,9 +100,10 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      position: absolute;
+      position: fixed; /* changed from absolute to fixed */
       top: 20px;
       right: 20px;
+      z-index: 1000; /* ensure it stays on top */
     }
 
     .hamburger div {
