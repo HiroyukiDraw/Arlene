@@ -157,6 +157,32 @@
    </div>
   </section>
 
+  <section id="contact">
+  <div class="container">
+     <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+            <div class="social-links">
+        <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
+      </div>
+  </div>
+</section>
+
+<div class="success-message" id="successMessage">Your message has been sent!</div>
+
+<!-- Back to top button -->
+<button id="backToTop">&#8679;</button>
+
+  <!-- Add zoom modal container -->
+<div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+  <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>
