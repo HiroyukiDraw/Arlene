@@ -283,15 +283,22 @@
     }
 
     .skill-box {
-      display: inline-block;
-      background: #e0f0fb;
-      border: 1px solid #3498db;
-      color: #2c3e50;
-      padding: 8px 12px;
-      margin: 5px 5px 10px 0;
-      border-radius: 6px;
-      font-size: 0.95rem;
-    }
+  display: inline-block;
+  background: #e0f0fb;
+  border: 1px solid #3498db;
+  color: #2c3e50;
+  padding: 8px 12px;
+  margin: 5px 5px 10px 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-box:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1); /* Slightly increase the size on hover */
+}
   </style>
 </head>
 <body>
