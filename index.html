@@ -1,30 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support" />
-  <title>Arlene Macaraig Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support">
+  <title>Arlene Macaraig | Portfolio</title>
   <style>
     :root {
-      --primary-color: #2c3e50;
-      --accent-color: #3498db;
-      --light-bg: #f9f9f9;
-      --text-color: #333;
-      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --background: #f9f9f9;
+      --text: #333;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    * {
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: var(--font-main);
-      color: var(--text-color);
-      background-color: var(--light-bg);
+      font-family: var(--font);
+      background: var(--background);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -36,11 +35,21 @@
     }
 
     header {
-      background-color: var(--primary-color);
-      color: white;
+      background: var(--primary);
+      color: #fff;
       text-align: center;
-      padding: 30px 0 10px;
+      padding: 40px 20px 20px;
       position: relative;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      object-fit: cover;
+      margin-bottom: 15px;
     }
 
     header h1 {
@@ -48,56 +57,47 @@
     }
 
     header p {
-      margin-bottom: 10px;
+      margin: 10px 0 0;
+      font-size: 1.1rem;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
       gap: 20px;
+      list-style: none;
       margin-top: 20px;
+      flex-wrap: wrap;
     }
 
     nav ul li a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
       padding: 10px 15px;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: 0.3s;
     }
 
     nav ul li a:hover {
-      background-color: var(--accent-color);
+      background: var(--accent);
     }
 
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
-      cursor: pointer;
       position: absolute;
       top: 20px;
       right: 20px;
+      cursor: pointer;
     }
 
     .hamburger div {
       width: 30px;
       height: 4px;
-      background-color: white;
+      background: #fff;
       border-radius: 2px;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
     }
 
     section {
@@ -106,19 +106,21 @@
     }
 
     section h2 {
+      color: var(--primary);
       font-size: 2rem;
-      color: var(--primary-color);
       margin-bottom: 20px;
+      text-align: center;
     }
 
     section h3 {
-      color: var(--accent-color);
-      margin-top: 30px;
+      color: var(--accent);
       font-size: 1.4rem;
+      margin-top: 30px;
     }
 
     ul {
       padding-left: 20px;
+      margin-top: 10px;
       margin-bottom: 20px;
     }
 
@@ -130,165 +132,140 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      margin-top: 20px;
     }
 
-    form input,
-    form textarea {
+    form input, form textarea {
       padding: 10px;
-      font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
 
     form button {
-      background-color: var(--accent-color);
-      color: white;
+      background: var(--accent);
+      color: #fff;
       border: none;
-      padding: 10px 20px;
+      padding: 12px;
       font-size: 1rem;
       border-radius: 5px;
       cursor: pointer;
     }
 
-    
-    .success-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent-color);
-      color: white;
-      padding: 20px 40px;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      z-index: 1000;
+    .social-links {
+      margin-top: 20px;
+      text-align: center;
     }
 
     .social-links a {
-      margin-right: 15px;
-      color: var(--primary-color);
+      color: var(--primary);
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
 
     .social-links a:hover {
-      color: var(--accent-color);
-    }
-
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 20px 0;
+      color: var(--accent);
     }
 
     .image-gallery {
       display: flex;
       justify-content: space-around;
-      margin-top: 20px;
       flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .image-gallery img {
       width: 30%;
-      height: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-bottom: 20px;
-      cursor: zoom-in;
-      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     .testimonial-section {
-      background-color: #ffffff;
-      padding: 60px 0;
-      border-top: 1px solid #ddd;
-    }
-
-    .testimonial-section h2 {
-      color: var(--primary-color);
-      text-align: center;
-      margin-bottom: 40px;
+      background: #fff;
+      padding: 60px 20px;
     }
 
     .testimonial {
-      max-width: 700px;
-      margin: auto;
       font-style: italic;
-      font-size: 1.1rem;
       color: #555;
-      border-left: 5px solid var(--accent-color);
+      border-left: 5px solid var(--accent);
       padding-left: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
     }
 
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      padding-top: 80px;
-      left: 0;
+      z-index: 999;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      background: rgba(0,0,0,0.9);
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-content {
-      margin: auto;
-      display: block;
       max-width: 90%;
       max-height: 80vh;
+      margin: auto;
       border-radius: 10px;
       animation: zoom 0.3s ease-in-out;
     }
 
     @keyframes zoom {
-      from {
-        transform: scale(0.7);
-      }
-      to {
-        transform: scale(1);
-      }
+      from {transform: scale(0.7);}
+      to {transform: scale(1);}
     }
 
     .close {
       position: absolute;
       top: 30px;
       right: 45px;
-      color: white;
       font-size: 40px;
-      font-weight: bold;
+      color: #fff;
       cursor: pointer;
     }
 
     #backToTop {
+      display: none;
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background-color: var(--accent-color);
-      color: white;
+      background: var(--accent);
+      color: #fff;
       border: none;
-      padding: 12px 18px;
-      font-size: 16px;
+      padding: 12px;
       border-radius: 50px;
       cursor: pointer;
-      display: none;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 999;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
       nav ul {
         display: none;
         flex-direction: column;
-        background-color: var(--primary-color);
+        background: var(--primary);
         position: absolute;
-        top: 80px;
         right: 20px;
+        top: 80px;
         padding: 20px;
         border-radius: 10px;
-        z-index: 100;
       }
 
       nav ul.open {
@@ -299,31 +276,28 @@
         display: flex;
       }
 
-      .image-gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-
       .image-gallery img {
         width: 80%;
       }
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <div class="container">
-      <img src="Hayss.jpg" alt="Arlene Macaraig" class="profile-pic" />
+      <img src="Hayss.jpg" alt="Arlene Macaraig" class="profile-pic">
       <h1>Arlene Macaraig</h1>
-      <p>Sr. Accounts Payable Specialist | SAP - L1 Support</p>
+      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
       <nav>
         <ul id="nav-links">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="#implementations" class="nav-link">Implementations</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#implementations">Implementations</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="hamburger" id="hamburger">
@@ -332,123 +306,78 @@
     </div>
   </header>
 
-  <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
-  <div class="container">
-    <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
-    <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #555;">
-      I'm Arlene Macaraig, a Senior Accounts Payable Specialist and SAP L1 Support professional with over 18 years of expertise. Explore my background, achievements, and how I can help streamline financial processes.
-    </p>
-    <a href="#about" style="display: inline-block; margin-top: 20px; padding: 12px 25px; background-color: var(--accent-color); color: white; text-decoration: none; font-size: 1rem; border-radius: 8px; transition: background-color 0.3s ease;">
-      Learn More About Me
-    </a>
-  </div>
-</section>
-
+  <section id="home" style="text-align: center; background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0;">
+    <div class="container">
+      <h2>Welcome to My Portfolio</h2>
+      <p>I'm Arlene Macaraig, a Senior Accounts Payable Specialist and SAP L1 Support with over 18 years of experience. Explore my achievements and services in financial process optimization.</p>
+      <a href="#about" style="margin-top: 20px; display: inline-block; background: var(--accent); color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none;">Learn More About Me</a>
+    </div>
+  </section>
 
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
-      <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-       <h3>Competencies:</h3>
+      <p>Motivated and results-driven Senior Accounts Payable Specialist with 18 years of experience in procurement, invoicing, payment, and reconciliation. Adept at driving efficiency, data analysis, and collaborating with cross-functional teams.</p>
+      <h3>Competencies:</h3>
       <ul>
-        <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
-        <li>Experience in the end-to-end Travel & Expense process</li>
-        <li>Exposure to ERP platforms - SAP preferred</li>
-        <li>Above average English communication skills, both verbal and written</li>
-        <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
-        <li>Highly analytical and comprehensive problem-solving skills</li>
-        <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
-        <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
-        <li>Great sense of urgency and ability to step up whenever the need arises</li>
-        <li>Positive attitude and exemplary self-leadership skills</li>
-        <li>Self-motivated, independent, and can work with minimal supervision</li>
-        <li>Collaborative and team-oriented</li>
-        <li>Showcases professionalism and a role model to more junior staff</li>
-        <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
+        <li>Expert in SAP Concur and ERP Systems (SAP preferred)</li>
+        <li>Expense reporting, compliance, and travel management</li>
+        <li>Strong problem-solving, data analysis, and communication skills</li>
+        <li>Self-motivated and a collaborative team player</li>
+        <li>Proficient in Microsoft Excel and Office applications</li>
       </ul>
 
       <h3>Key Skills:</h3>
-<ul>
-  <li>Expense Reporting</li>
-  <li>Expense Policy Compliance</li>
-  <li>Integration with ERP Systems</li>
-  <li>Travel Management</li>
-  <li>System Troubleshooting</li>
-  <li>Data Analysis & Reporting</li>
-  <li>Process Optimization</li>
-  <li>Invoice Processing</li>
-  <li>Vendor Management</li>
-  <li>Reconciliation</li>
-  <li>Compliance & Accuracy</li>
-  <li>Data Entry & Management</li>
-  <li>Automation Tools</li>
-  <li>Attention to Detail</li>
-  <li>Problem Solving</li>
-</ul>
+      <ul>
+        <li>Expense Reporting & Compliance</li>
+        <li>ERP Integrations</li>
+        <li>Travel Management Systems</li>
+        <li>Process Optimization</li>
+        <li>Vendor Management</li>
+        <li>System Troubleshooting</li>
+      </ul>
     </div>
   </section>
 
   <section id="portfolio">
     <div class="container">
       <h2>Professional Portfolio</h2>
-<h3>Project 1 – SAP Concur Subject-Matter-Expert (SME)</h3>
-            <p>Key Responsibilities:</p>
-            <ul>
-                <li>Act as the go-to expert for all things SAP Concur.</li>
-                <li>Provide functional and technical support to users.</li>
-                <li>Lead the implementation and configuration of Concur modules.</li>
-                <li>Develop and deliver training materials and user guides.</li>
-                <li>Analyze business processes and recommend enhancements.</li>
-                <li>Collaborate cross-functionally with other departments.</li>
-                <li>Ensure compliance with policies, tax laws, and audit requirements.</li>
-                <li>Perform knowledge transfer and best practices sharing.</li>
-                <li>Prepare and provide analysis or insights on reports.</li>
-                <li>Monitor expense interface to SAP.</li>
-            </ul>
-            <h3>Project 2 – Travel & Expense (T&E) Accountant</h3>
-            <ul>
-                <li>Review and audit employee expense reports.</li>
-                <li>Manage corporate card programs and resolve discrepancies.</li>
-                <li>Monitor transactions for fraud and compliance.</li>
-                <li>Partner with HR, payroll, and accounts payable teams.</li>
-                <li>Support month-end and year-end processes.</li>
-                <li>Administer and maintain T&E systems.</li>
-                <li>Lead policy training and user support.</li>
-                <li>Analyze trends and generate reports for cost control.</li>
-            </ul>
-            <h3>Project 3 – Accounts Payable Accountant</h3>
-            <ul>
-                <li>Oversee end-to-end AP processes.</li>
-                <li>Ensure compliance with internal controls and legal regulations.</li>
-                <li>Manage vendor relationships and resolve discrepancies.</li>
-                <li>Perform reconciliations and closing procedures.</li>
-                <li>Assist in system implementations or upgrades.</li>
-                <li>Analyze data to optimize cash flow and working capital.</li>
-                <li>Support audit requests and documentation.</li>
-            </ul>
+      <h3>SAP Concur SME</h3>
+      <ul>
+        <li>Lead implementations, support, and training for SAP Concur</li>
+        <li>Analyze processes and deliver enhancements</li>
+        <li>Ensure compliance and reporting insights</li>
+      </ul>
+
+      <h3>Travel & Expense Accountant</h3>
+      <ul>
+        <li>Manage corporate card programs and audit expense reports</li>
+        <li>Monitor fraud, policy compliance, and reporting trends</li>
+      </ul>
+
+      <h3>Accounts Payable Accountant</h3>
+      <ul>
+        <li>Oversee full-cycle AP processes, vendor management, and reconciliations</li>
+      </ul>
     </div>
   </section>
 
   <section id="implementations">
     <div class="container">
-      <h2>Project Implementations and Travel and Expense Management</h2>
-       <h3>1 – Asia Pacific (APAC) Implementations</h3>
-                  <ul>
-                <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
-                <li><strong>🇹🇭 Thailand:</strong> Transitions Optical Thailand, EssilorLuxottica Wholesale (Thailand) Ltd, Luxottica Thailand Ltd</li>
-                <li><strong>🇮🇳 India:</strong> Essilor India Private Limited, Essilor Manufacturing India Private Limited, Rayban Sun Optics India Private Limited, Luxottica India Eyewear Private Limited</li>
-                <li><strong>🇵🇭 Philippines:</strong> Essilor Shared Services, Phil., Inc., Essilor Manufacturing Phils., Inc., Optodev, Inc., Essilor Philippines Optical Distribution, Inc</li>
-                <li><strong>🇦🇺 Australia:</strong> Essilor Australia Pty, Luxottica South Pacific Holding, LUXOTTICA RETAIL AUSTRALIA PTY LTD</li>
-                <li><strong>🇳🇿 New Zealand:</strong> Essilor New Zealand, LUXOTTICA RETAIL NEW ZEALAND LIMITED</li>
-                <li><strong>🇰🇷 South Korea:</strong> Luxottica Korea Ltd</li>
-                <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
-            </ul>
-
-      <br>
+      <h2>Project Implementations</h2>
+      <ul>
+        <li>🇸🇬 Singapore: EssilorLuxottica Asia Pacific and subsidiaries</li>
+        <li>🇹🇭 Thailand: Transitions Optical Thailand, Luxottica</li>
+        <li>🇮🇳 India: Essilor India and Luxottica India</li>
+        <li>🇵🇭 Philippines: Essilor Shared Services & Manufacturing</li>
+        <li>🇦🇺 Australia & 🇳🇿 New Zealand: Essilor and Luxottica Retail</li>
+        <li>🇰🇷 South Korea: Luxottica Korea</li>
+        <li>🇯🇵 Japan: Washin Optical Co., Ltd.</li>
+      </ul>
       <div class="image-gallery">
-        <img src="eyy.jpg" alt="Project 1" class="zoomable-img"/>
-        <img src="eyy2.jpg" alt="Project 2" class="zoomable-img"/>
-        <img src="eyy.jpg" alt="Project 3" class="zoomable-img"/>
+        <img src="eyy.jpg" alt="Project Image 1" class="zoomable-img">
+        <img src="eyy2.jpg" alt="Project Image 2" class="zoomable-img">
+        <img src="eyy.jpg" alt="Project Image 3" class="zoomable-img">
       </div>
     </div>
   </section>
@@ -456,9 +385,9 @@
   <section id="testimonials" class="testimonial-section">
     <div class="container">
       <h2>Testimonials</h2>
-      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
-            <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
-            <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
+      <p class="testimonial">"Arlene's expertise in SAP Concur was instrumental to our success." – Former Colleague</p>
+      <p class="testimonial">"Her attention to detail is unmatched. A great asset to any team." – Project Manager</p>
+      <p class="testimonial">"Working globally with Arlene was a breeze. She's outstanding!" – Business Partner</p>
     </div>
   </section>
 
@@ -466,14 +395,11 @@
     <div class="container">
       <h2>Contact Me</h2>
       <form action="contacts.php" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
         <button type="submit">Send Message</button>
       </form>
-
-        <div class="success-message" id="successMessage">Your message has been sent!</div>
-
       <div class="social-links">
         <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
@@ -482,65 +408,46 @@
   </section>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Arlene Macaraig. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 Arlene Macaraig. All rights reserved.</p>
   </footer>
 
-  <!-- Modal for zooming images -->
+  <!-- Modal -->
   <div id="imgModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" title="Go to top">↑</button>
+  <button id="backToTop">↑</button>
 
   <script>
-    // Hamburger menu
+    // Hamburger
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+    // Image Zoom Modal
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.close');
 
-    // Image zoom modal
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImg");
-    const closeModal = document.querySelector(".close");
-
-    document.querySelectorAll(".zoomable-img").forEach(img => {
-      img.addEventListener("click", () => {
-        modal.style.display = "block";
+    document.querySelectorAll('.zoomable-img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
         modalImg.src = img.src;
       });
     });
 
-    closeModal.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // Back to top logic
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-        const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.reset();
-      successMessage.style.display = 'block';
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 3000);
-    });
+    backToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
   </script>
+
 </body>
 </html>
