@@ -52,7 +52,6 @@
       flex-wrap: wrap;
       list-style: none;
       gap: 20px;
-      transition: all 0.3s ease;
     }
     nav ul li a {
       color: white;
@@ -71,7 +70,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 1001;
+      z-index: 1000;
     }
     .hamburger div {
       width: 30px;
@@ -80,31 +79,25 @@
       border-radius: 2px;
       transition: background-color 0.3s ease;
     }
-    .hamburger.scrolled div { background-color: #333; }
+
+    .hamburger.scrolled div { background-color: #45445f; }
+
     @media (max-width: 768px) {
       nav ul {
+        display: none;
         flex-direction: column;
         background: var(--primary-color);
-        position: fixed;
-        top: 70px;
+        position: absolute;
+        top: 80px;
         right: 20px;
         width: 200px;
         border-radius: 8px;
         padding: 20px 0;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-20px);
       }
-      nav ul.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
+      nav ul.active { display: flex; }
       .hamburger { display: flex; }
     }
-    
+
     section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
@@ -259,7 +252,6 @@
     .btn:hover { background-color: #2980b9; transform: scale(1.05); }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -443,9 +435,16 @@
   <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
 </div>
 
-
-<!-- JavaScript for smooth hamburger toggle -->
 <script>
+  window.addEventListener('scroll', function() {
+    const hamburger = document.getElementById('hamburger');
+    if (window.scrollY > 100) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
+    }
+  });
+
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 
@@ -453,10 +452,11 @@
     navLinks.classList.toggle('active');
   });
 
-  // Optional: Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
     }
   });
 
