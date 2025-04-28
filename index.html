@@ -1,36 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- head content (same as yours) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support">
   <title>Arlene Macaraig | Portfolio</title>
   <style>
-    /* your entire CSS (unchanged) */
-    :root { --primary-color: #2c3e50; --accent-color: #3498db; --background-light: #f9f9f9; --text-color: #333; --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --background-light: #f9f9f9;
+      --text-color: #333;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--font-family); background: var(--background-light); color: var(--text-color); line-height: 1.6; }
+    body {
+      font-family: var(--font-family);
+      background: var(--background-light);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
     .container { width: 90%; max-width: 1100px; margin: auto; padding: 20px; }
-    header { background: var(--primary-color); color: white; padding: 40px 0; text-align: center; position: relative; }
-    header img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 5px solid white; outline: 3px solid var(--accent-color); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 20px; }
-    header img:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); }
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      outline: 3px solid var(--accent-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; }
     nav { margin-top: 20px; }
-    nav ul { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; gap: 20px; }
-    nav ul li a { color: white; text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s ease; }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
     nav ul li a:hover { background: var(--accent-color); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1000; }
-    .hamburger div { width: 30px; height: 4px; background-color: white; border-radius: 2px; transition: background-color 0.3s ease; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+      transition: background-color 0.3s ease;
+    }
     .hamburger.scrolled div { background-color: #333; }
     @media (max-width: 768px) {
-      nav ul { display: none; flex-direction: column; background: var(--primary-color); position: absolute; top: 80px; right: 20px; width: 200px; border-radius: 8px; padding: 20px 0; }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--primary-color);
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        padding: 20px 0;
+      }
       nav ul.active { display: flex; }
       .hamburger { display: flex; }
     }
-    /* Rest of your CSS (unchanged) */
-
     section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
@@ -212,7 +276,6 @@
   </div>
 </header>
 
-<!-- your sections continue here -->
 <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
   <div class="container">
     <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
@@ -369,23 +432,29 @@
   <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
 </div>
 
-<!-- NOW here is the script needed (this is the ONLY addition) -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('scroll', function() {
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+    if (window.scrollY > 100) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
+    }
+  });
 
-    hamburger.addEventListener('click', function() {
-      navLinks.classList.toggle('active');
-    });
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        hamburger.classList.add('scrolled');
-      } else {
-        hamburger.classList.remove('scrolled');
-      }
-    });
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
+    }
   });
 
   const form = document.getElementById('contactForm');
