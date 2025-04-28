@@ -155,6 +155,7 @@
       justify-content: space-around;
       flex-wrap: wrap;
       margin-top: 20px;
+      position: relative; /* Make sure the zoom overlay is placed above these images */
     }
 
     .image-gallery img {
@@ -165,10 +166,29 @@
       margin-bottom: 20px;
       cursor: pointer;
       transition: transform 0.3s, scale 0.3s;
+      z-index: 1; /* Ensure it's layered beneath the zoom */
     }
 
     .image-gallery img:hover {
       transform: scale(1.05);
+    }
+
+    .zoom-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10; /* Ensure it's above the images */
+    }
+
+    .zoom-overlay img {
+      width: 50%;
+      height: auto;
     }
 
     .testimonial-section {
@@ -265,27 +285,6 @@
       text-align: center;
       padding: 20px;
     }
-
-    /* Back to top button */
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
-
-    #backToTop:hover {
-      background-color: #2980b9;
-    }
   </style>
 </head>
 <body>
@@ -314,24 +313,23 @@
       </nav>
 
     </div>
-</header>
+  </header>
 
-<!-- (sections unchanged) -->
-<section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
-  <div class="container">
-    <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
+  <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
       <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #555;">
         I'm Arlene Macaraig, a Senior Accounts Payable Specialist and SAP L1 Support professional with over 18 years of expertise. Explore my background, achievements, and how I can help streamline financial processes.
       </p>
       <a href="#about" style="display: inline-block; margin-top: 20px; padding: 12px 25px; background-color: var(--accent-color); color: white; text-decoration: none; font-size: 1rem; border-radius: 8px; transition: background-color 0.3s ease;">
         Learn More About Me
       </a>
-  </div>
-</section>
+    </div>
+  </section>
 
-<section id="about">
-  <div class="container">
-   <h2>About Me</h2>
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
             <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
       <h3>Competencies</h3>
       <ul>
@@ -369,12 +367,12 @@
   <li>Attention to Detail</li>
   <li>Problem Solving</li>
 </ul>
-  </div>
-</section>
+    </div>
+  </section>
 
-<section id="portfolio">
-  <div class="container">
-    <h2>Professional Portfolio</h2>
+  <section id="portfolio">
+    <div class="container">
+      <h2>Professional Portfolio</h2>
       <h3>Project 1 – SAP Concur SME</h3>
             <ul>
                 <li>Act as the go-to expert for all things SAP Concur.</li>
@@ -401,20 +399,18 @@
             </ul>
             <h3>Project 3 – Accounts Payable Accountant</h3>
             <ul>
-                <li>Oversee end-to-end AP processes.</li>
-                <li>Ensure compliance with internal controls and legal regulations.</li>
-                <li>Manage vendor relationships and resolve discrepancies.</li>
-                <li>Perform reconciliations and closing procedures.</li>
-                <li>Assist in system implementations or upgrades.</li>
-                <li>Analyze data to optimize cash flow and working capital.</li>
-                <li>Support audit requests and documentation.</li>
+                <li>Process invoices, payments, and month-end reports.</li>
+                <li>Reconcile accounts and ensure accuracy of data.</li>
+                <li>Support internal and external audits.</li>
+                <li>Verify tax compliance and vendor accuracy.</li>
+                <li>Provide financial reporting to management.</li>
             </ul>
-  </div>
-</section>
+      </div>
+    </section>
 
-<section id="implementations">
-  <div class="container">
-    <h2>Project Implementations</h2>
+    <section id="implementations">
+      <div class="container">
+        <h2>Project Implementations</h2>
       <h3>Asia Pacific (APAC) Implementations</h3>
       <ul>
                 <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
@@ -426,106 +422,75 @@
                 <li><strong>🇰🇷 South Korea:</strong> Luxottica Korea Ltd</li>
                 <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
             </ul>
-      <div class="image-gallery">
-        <img src="eyy3.jpg" alt="Implementation 1">
-        <img src="eyy2.jpg" alt="Implementation 2">
-        <img src="eyy.jpg" alt="Implementation 3">
+        <div class="image-gallery">
+          <img src="eyy3.jpg" alt="SAP Implementation 1" class="zoomable">
+          <img src="eyy2.jpg" alt="SAP Implementation 2" class="zoomable">
+          <img src="eyy.jpg" alt="SAP Implementation 3" class="zoomable">
+        </div>
+        <div class="zoom-overlay" id="zoom-overlay">
+          <img src="" alt="Zoomed Image" id="zoomed-image">
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<section id="testimonials" class="testimonial-section">
-  <div class="container">
-   <h2>Testimonials</h2>
-      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
+    <section id="testimonials">
+      <div class="container">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial-section">
+          <div class="testimonial">
+            <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
             <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
             <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
-   
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-     <h2>Contact Me</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-            <div class="social-links">
-        <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
+          </div>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<div class="success-message" id="successMessage">Your message has been sent!</div>
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        <div class="success-message" id="success-message">
+          Thank you for reaching out! I'll get back to you soon.
+        </div>
+      </div>
+    </section>
 
-<!-- Back to top button -->
-<button id="backToTop">&#8679;</button>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
 
-<footer>
-  <div class="container">
-    &copy; 2025 Arlene Macaraig | All Rights Reserved
-  </div>
-</footer>
+    <footer>
+      <p>&copy; 2025 Arlene Macaraig. All Rights Reserved.</p>
+    </footer>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    form.reset();
-    successMessage.style.display = 'block';
-    setTimeout(() => {
-      successMessage.style.display = 'none';
-    }, 3000);
-  });
+      const zoomOverlay = document.getElementById('zoom-overlay');
+      const zoomedImage = document.getElementById('zoomed-image');
+      const zoomableImages = document.querySelectorAll('.zoomable');
 
-  hamburger.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-  });
+      zoomableImages.forEach(image => {
+        image.addEventListener('click', () => {
+          zoomedImage.src = image.src;
+          zoomOverlay.style.display = 'flex';
+        });
+      });
 
-  const navItems = document.querySelectorAll('#nav-links li a');
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-
-  const galleryImages = document.querySelectorAll('.image-gallery img');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      if (img.style.transform === 'scale(1.5)') {
-        img.style.transform = 'scale(1)';
-      } else {
-        img.style.transform = 'scale(1.5)';
-      }
-    });
-  });
-
-  // Back to top button functionality
-  const backToTop = document.getElementById('backToTop');
-
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      backToTop.style.display = 'block';
-    } else {
-      backToTop.style.display = 'none';
-    }
-  });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-</script>
-
-</body>
+      zoomOverlay.addEventListener('click', () => {
+        zoomOverlay.style.display = 'none';
+      });
+    </script>
+  </body>
 </html>
