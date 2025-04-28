@@ -448,6 +448,15 @@
 
 <!-- JavaScript for smooth hamburger toggle -->
 <script>
+  window.addEventListener('scroll', function() {
+    const hamburger = document.getElementById('hamburger');
+    if (window.scrollY > 100) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
+    }
+  });
+  
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 
