@@ -42,14 +42,24 @@
       position: relative;
     }
 
+    /* NEW PROFILE PIC DESIGN */
     header img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid white;
+      border: 5px solid white;
+      outline: 3px solid var(--accent-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 20px;
     }
+
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    /* END NEW PROFILE PIC DESIGN */
 
     header h1 {
       font-size: 2.5rem;
@@ -283,22 +293,22 @@
     }
 
     .skill-box {
-  display: inline-block;
-  background: #e0f0fb;
-  border: 1px solid #3498db;
-  color: #2c3e50;
-  padding: 8px 12px;
-  margin: 5px 5px 10px 0;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+      display: inline-block;
+      background: #e0f0fb;
+      border: 1px solid #3498db;
+      color: #2c3e50;
+      padding: 8px 12px;
+      margin: 5px 5px 10px 0;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-.skill-box:hover {
-  background-color: #3498db;
-  color: white;
-  transform: scale(1.1); /* Slightly increase the size on hover */
-}
+    .skill-box:hover {
+      background-color: #3498db;
+      color: white;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -320,16 +330,14 @@
           <li><a href="#about">About</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#implementations">Implementations</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
     </div>
-</header>
+  </header>
 
-<!-- (sections unchanged) -->
-<section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
+  <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
   <div class="container">
     <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
       <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #555;">
@@ -343,44 +351,44 @@
 
 <section id="about">
   <div class="container">
-    <h2>About Me</h2>
-    <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-    <h3>Competencies</h3>
-    <ul>
-      <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
-      <li>Experience in the end-to-end Travel & Expense process</li>
-      <li>Exposure to ERP platforms - SAP preferred</li>
-      <li>Above average English communication skills, both verbal and written</li>
-      <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
-      <li>Highly analytical and comprehensive problem-solving skills</li>
-      <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
-      <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
-      <li>Great sense of urgency and ability to step up whenever the need arises</li>
-      <li>Positive attitude and exemplary self-leadership skills</li>
-      <li>Self-motivated, independent, and can work with minimal supervision</li>
-      <li>Collaborative and team-oriented</li>
-      <li>Showcases professionalism and a role model to more junior staff</li>
-      <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
-    </ul>
+   <h2>About Me</h2>
+            <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
+      <h3>Competencies</h3>
+      <ul>
+        <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
+        <li>Experience in the end-to-end Travel & Expense process</li>
+        <li>Exposure to ERP platforms - SAP preferred</li>
+        <li>Above average English communication skills, both verbal and written</li>
+        <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
+        <li>Highly analytical and comprehensive problem-solving skills</li>
+        <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
+        <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
+        <li>Great sense of urgency and ability to step up whenever the need arises</li>
+        <li>Positive attitude and exemplary self-leadership skills</li>
+        <li>Self-motivated, independent, and can work with minimal supervision</li>
+        <li>Collaborative and team-oriented</li>
+        <li>Showcases professionalism and a role model to more junior staff</li>
+        <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
+      </ul>
 
-    <h3>Key Skills:</h3>
-    <div>
-      <span class="skill-box">Expense Reporting</span>
-      <span class="skill-box">Expense Policy Compliance</span>
-      <span class="skill-box">Integration with ERP Systems</span>
-      <span class="skill-box">Travel Management</span>
-      <span class="skill-box">System Troubleshooting</span>
-      <span class="skill-box">Data Analysis & Reporting</span>
-      <span class="skill-box">Process Optimization</span>
-      <span class="skill-box">Invoice Processing</span>
-      <span class="skill-box">Vendor Management</span>
-      <span class="skill-box">Reconciliation</span>
-      <span class="skill-box">Compliance & Accuracy</span>
-      <span class="skill-box">Data Entry & Management</span>
-      <span class="skill-box">Automation Tools</span>
-      <span class="skill-box">Attention to Detail</span>
-      <span class="skill-box">Problem Solving</span>
-    </div>
+      <h3>Key Skills:</h3>
+      <ul>
+  <li>Expense Reporting</li>
+  <li>Expense Policy Compliance</li>
+  <li>Integration with ERP Systems</li>
+  <li>Travel Management</li>
+  <li>System Troubleshooting</li>
+  <li>Data Analysis & Reporting</li>
+  <li>Process Optimization</li>
+  <li>Invoice Processing</li>
+  <li>Vendor Management</li>
+  <li>Reconciliation</li>
+  <li>Compliance & Accuracy</li>
+  <li>Data Entry & Management</li>
+  <li>Automation Tools</li>
+  <li>Attention to Detail</li>
+  <li>Problem Solving</li>
+</ul>
   </div>
 </section>
 
@@ -550,5 +558,4 @@
 
 </body>
 </html>
-
 
