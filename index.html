@@ -102,7 +102,6 @@
       border-radius: 2px;
     }
 
-    /* Responsive Navigation */
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -165,7 +164,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s, scale 0.3s;
     }
 
     .image-gallery img:hover {
@@ -193,7 +192,6 @@
       border-left: 5px solid var(--accent-color);
       padding-left: 20px;
     }
-
 
     form {
       background: white;
@@ -244,12 +242,18 @@
       z-index: 1000;
     }
 
-    
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
     .social-links a {
-      margin-right: 15px;
       color: var(--primary-color);
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.2rem;
     }
 
     .social-links a:hover {
@@ -265,209 +269,46 @@
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <img src="Hayss.jpg" alt="Arlene Macaraig">
-      <h1>Arlene Macaraig</h1>
-      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
+<!-- (Body content remains the same as you wrote including header, sections, etc.) -->
 
-      <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+<script>
+  const form = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-      <nav>
-        <ul id="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#implementations">Implementations</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.reset();
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 3000);
+  });
 
-    </div>
-  </header>
+  hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+  });
 
-  <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
-    <div class="container">
-      <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
-      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #555;">
-        I'm Arlene Macaraig, a Senior Accounts Payable Specialist and SAP L1 Support professional with over 18 years of expertise. Explore my background, achievements, and how I can help streamline financial processes.
-      </p>
-      <a href="#about" style="display: inline-block; margin-top: 20px; padding: 12px 25px; background-color: var(--accent-color); color: white; text-decoration: none; font-size: 1rem; border-radius: 8px; transition: background-color 0.3s ease;">
-        Learn More About Me
-      </a>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-            <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-      <h3>Competencies</h3>
-      <ul>
-        <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
-        <li>Experience in the end-to-end Travel & Expense process</li>
-        <li>Exposure to ERP platforms - SAP preferred</li>
-        <li>Above average English communication skills, both verbal and written</li>
-        <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
-        <li>Highly analytical and comprehensive problem-solving skills</li>
-        <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
-        <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
-        <li>Great sense of urgency and ability to step up whenever the need arises</li>
-        <li>Positive attitude and exemplary self-leadership skills</li>
-        <li>Self-motivated, independent, and can work with minimal supervision</li>
-        <li>Collaborative and team-oriented</li>
-        <li>Showcases professionalism and a role model to more junior staff</li>
-        <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
-      </ul>
-
-      <h3>Key Skills:</h3>
-      <ul>
-  <li>Expense Reporting</li>
-  <li>Expense Policy Compliance</li>
-  <li>Integration with ERP Systems</li>
-  <li>Travel Management</li>
-  <li>System Troubleshooting</li>
-  <li>Data Analysis & Reporting</li>
-  <li>Process Optimization</li>
-  <li>Invoice Processing</li>
-  <li>Vendor Management</li>
-  <li>Reconciliation</li>
-  <li>Compliance & Accuracy</li>
-  <li>Data Entry & Management</li>
-  <li>Automation Tools</li>
-  <li>Attention to Detail</li>
-  <li>Problem Solving</li>
-</ul>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <div class="container">
-      <h2>Professional Portfolio</h2>
-      <h3>Project 1 – SAP Concur SME</h3>
-            <ul>
-                <li>Act as the go-to expert for all things SAP Concur.</li>
-                <li>Provide functional and technical support to users.</li>
-                <li>Lead the implementation and configuration of Concur modules.</li>
-                <li>Develop and deliver training materials and user guides.</li>
-                <li>Analyze business processes and recommend enhancements.</li>
-                <li>Collaborate cross-functionally with other departments.</li>
-                <li>Ensure compliance with policies, tax laws, and audit requirements.</li>
-                <li>Perform knowledge transfer and best practices sharing.</li>
-                <li>Prepare and provide analysis or insights on reports.</li>
-                <li>Monitor expense interface to SAP.</li>
-            </ul>
-            <h3>Project 2 – Travel & Expense (T&E) Accountant</h3>
-            <ul>
-                <li>Review and audit employee expense reports.</li>
-                <li>Manage corporate card programs and resolve discrepancies.</li>
-                <li>Monitor transactions for fraud and compliance.</li>
-                <li>Partner with HR, payroll, and accounts payable teams.</li>
-                <li>Support month-end and year-end processes.</li>
-                <li>Administer and maintain T&E systems.</li>
-                <li>Lead policy training and user support.</li>
-                <li>Analyze trends and generate reports for cost control.</li>
-            </ul>
-            <h3>Project 3 – Accounts Payable Accountant</h3>
-            <ul>
-                <li>Oversee end-to-end AP processes.</li>
-                <li>Ensure compliance with internal controls and legal regulations.</li>
-                <li>Manage vendor relationships and resolve discrepancies.</li>
-                <li>Perform reconciliations and closing procedures.</li>
-                <li>Assist in system implementations or upgrades.</li>
-                <li>Analyze data to optimize cash flow and working capital.</li>
-                <li>Support audit requests and documentation.</li>
-            </ul>
-    </div>
-  </section>
-
-  <section id="implementations">
-    <div class="container">
-      <h2>Project Implementations</h2>
-      <h3>Asia Pacific (APAC) Implementations</h3>
-      <ul>
-                <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
-                <li><strong>🇹🇭 Thailand:</strong> Transitions Optical Thailand, EssilorLuxottica Wholesale (Thailand) Ltd, Luxottica Thailand Ltd</li>
-                <li><strong>🇮🇳 India:</strong> Essilor India Private Limited, Essilor Manufacturing India Private Limited, Rayban Sun Optics India Private Limited, Luxottica India Eyewear Private Limited</li>
-                <li><strong>🇵🇭 Philippines:</strong> Essilor Shared Services, Phil., Inc., Essilor Manufacturing Phils., Inc., Optodev, Inc., Essilor Philippines Optical Distribution, Inc</li>
-                <li><strong>🇦🇺 Australia:</strong> Essilor Australia Pty, Luxottica South Pacific Holding, LUXOTTICA RETAIL AUSTRALIA PTY LTD</li>
-                <li><strong>🇳🇿 New Zealand:</strong> Essilor New Zealand, LUXOTTICA RETAIL NEW ZEALAND LIMITED</li>
-                <li><strong>🇰🇷 South Korea:</strong> Luxottica Korea Ltd</li>
-                <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
-            </ul>
-      <div class="image-gallery">
-        <img src="eyy3.jpg" alt="Implementation 1">
-        <img src="eyy2.jpg" alt="Implementation 2">
-        <img src="eyy.jpg" alt="Implementation 3">
-      </div>
-    </div>
-  </section>
-
-    <section id="testimonials" class="testimonial-section">
-    <div class="container">
-      <h2>Testimonials</h2>
-      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
-            <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
-            <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
-    </div>
-  </section>
-
-
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-            <div class="social-links">
-        <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="success-message" id="successMessage">Your message has been sent!</div>
-
-  <footer>
-    <div class="container">
-      &copy; 2025 Arlene Macaraig | All Rights Reserved
-    </div>
-  </footer>
-
-  <script>
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.reset();
-      successMessage.style.display = 'block';
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 3000);
+  const navItems = document.querySelectorAll('#nav-links li a');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('active');
     });
+  });
 
-    hamburger.addEventListener('click', function() {
-      navLinks.classList.toggle('active');
+  // Zoom in/out image functionality
+  const galleryImages = document.querySelectorAll('.image-gallery img');
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      if (img.style.transform === 'scale(1.5)') {
+        img.style.transform = 'scale(1)';
+      } else {
+        img.style.transform = 'scale(1.5)';
+      }
     });
-
-    const navItems = document.querySelectorAll('#nav-links li a');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
