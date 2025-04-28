@@ -24,7 +24,7 @@
     header {
       background: var(--primary-color);
       color: white;
-      padding: 40px 0;
+      padding: 40px 0 20px 0;
       text-align: center;
       position: relative;
     }
@@ -44,26 +44,24 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
+    header p { font-size: 1.2rem; margin-bottom: 20px; }
     
     .sticky-bar {
       position: sticky;
       top: 0;
-      width: 100%;
       background: var(--primary-color);
+      padding: 10px 20px;
       z-index: 1000;
-      padding: 10px 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
-    
+
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
     }
     .hamburger div {
       width: 30px;
@@ -72,7 +70,6 @@
       border-radius: 2px;
       transition: background-color 0.3s ease;
     }
-    .hamburger.scrolled div { background-color: #464573; }
 
     nav { margin-top: 20px; }
     nav ul {
@@ -107,8 +104,6 @@
         visibility: hidden;
         pointer-events: none;
         transform: translateY(-20px);
-        transition: all 0.3s ease;
-        z-index: 1000;
       }
       nav ul.active {
         opacity: 1;
@@ -276,6 +271,14 @@
 
 <body>
 
+<header>
+  <div class="container">
+    <img src="Hayss.jpg" alt="Arlene Macaraig">
+    <h1>Arlene Macaraig</h1>
+    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
+  </div>
+</header>
+
 <div class="sticky-bar">
   <div class="hamburger" id="hamburger">
     <div></div>
@@ -284,24 +287,16 @@
   </div>
 </div>
 
-<header>
-  <div class="container">
-    <img src="Hayss.jpg" alt="Arlene Macaraig">
-    <h1>Arlene Macaraig</h1>
-    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
-
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#implementations">Implementations</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<nav>
+  <ul id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#implementations">Implementations</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
 <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
   <div class="container">
@@ -460,27 +455,16 @@
 </div>
 
 
-<!-- JavaScript for smooth hamburger toggle -->
 <script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-window.addEventListener('scroll', function() {
-    const hamburger = document.getElementById('hamburger');
-    if (window.scrollY > 100) {
-      hamburger.classList.add('scrolled');
-    } else {
-      hamburger.classList.remove('scrolled');
-    }
-  });
-  
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Optional: Close menu when clicking outside
-  document.addEventListener('click', (e) => {
+// Optional: Close menu when clicking outside
+document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
     }
@@ -547,4 +531,3 @@ window.addEventListener('scroll', function() {
 
 </body>
 </html>
-
