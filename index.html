@@ -39,7 +39,10 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 20px;
     }
-    header img:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); }
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; }
     nav { margin-top: 20px; }
@@ -76,9 +79,7 @@
       border-radius: 2px;
       transition: background-color 0.3s ease;
     }
-    .hamburger.scrolled div {
-      background-color: #333; /* Dark when scrolled */
-    }
+    .hamburger.scrolled div { background-color: #333; }
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -248,7 +249,6 @@
     .btn:hover { background-color: #2980b9; transform: scale(1.05); }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -432,9 +432,7 @@
   <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
 </div>
 
-
 <script>
-  // Script to change hamburger color when scrolling
   window.addEventListener('scroll', function() {
     const hamburger = document.getElementById('hamburger');
     if (window.scrollY > 100) {
@@ -444,12 +442,19 @@
     }
   });
 
-  // Mobile nav toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      hamburger.classList.add('scrolled');
+    } else {
+      hamburger.classList.remove('scrolled');
+    }
   });
 
   const form = document.getElementById('contactForm');
