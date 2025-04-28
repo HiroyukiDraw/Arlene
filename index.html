@@ -45,6 +45,35 @@
     }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; }
+    
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--primary-color);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+      transition: background-color 0.3s ease;
+    }
+    .hamburger.scrolled div { background-color: #464573; }
+
     nav { margin-top: 20px; }
     nav ul {
       display: flex;
@@ -63,25 +92,6 @@
       transition: background-color 0.3s ease;
     }
     nav ul li a:hover { background: var(--accent-color); }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
-    }
-    .hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: white;
-      border-radius: 2px;
-      transition: background-color 0.3s ease;
-    }
-    
-    .hamburger.scrolled div { background-color: #464573; }
 
     @media (max-width: 768px) {
       nav ul {
@@ -97,6 +107,8 @@
         visibility: hidden;
         pointer-events: none;
         transform: translateY(-20px);
+        transition: all 0.3s ease;
+        z-index: 1000;
       }
       nav ul.active {
         opacity: 1;
@@ -106,7 +118,7 @@
       }
       .hamburger { display: flex; }
     }
-    
+
     section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
@@ -264,17 +276,19 @@
 
 <body>
 
+<div class="sticky-bar">
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
 <header>
   <div class="container">
     <img src="Hayss.jpg" alt="Arlene Macaraig">
     <h1>Arlene Macaraig</h1>
     <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
-
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
 
     <nav>
       <ul id="nav-links">
@@ -448,7 +462,8 @@
 
 <!-- JavaScript for smooth hamburger toggle -->
 <script>
-  window.addEventListener('scroll', function() {
+
+window.addEventListener('scroll', function() {
     const hamburger = document.getElementById('hamburger');
     if (window.scrollY > 100) {
       hamburger.classList.add('scrolled');
@@ -532,3 +547,4 @@
 
 </body>
 </html>
+
