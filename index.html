@@ -1,143 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support">
-  <title>Arlene Macaraig | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arlene Macaraig</title>
   <style>
     :root {
       --primary-color: #2c3e50;
-      --accent-color: #3498db;
-      --background-light: #f9f9f9;
-      --text-color: #333;
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --text-color: #ffffff;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: var(--font-family);
-      background: var(--background-light);
-      color: var(--text-color);
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
-    .container { width: 90%; max-width: 1100px; margin: auto; padding: 20px; }
-    header {
-      background: var(--primary-color);
-      color: white;
-      padding: 40px 0 20px 0;
-      text-align: center;
-      position: relative;
-    }
-    header img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid white;
-      outline: 3px solid var(--accent-color);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-bottom: 20px;
-    }
-    header img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; margin-bottom: 20px; }
 
     .sticky-bar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: var(--primary-color);
+      background-color: var(--primary-color);
       padding: 10px 20px;
       z-index: 1000;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-      align-items: center;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      background: var(--accent-color);
     }
 
     .hamburger {
-      display: none;
-      flex-direction: column;
       cursor: pointer;
-      gap: 5px;
-      position: absolute;
-      top: 10px;
-      right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
     }
 
     .hamburger div {
       width: 25px;
       height: 3px;
-      background: white;
+      background-color: var(--text-color);
     }
 
-    @media (max-width: 768px) {
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 60px; /* Below sticky bar */
+      right: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    nav ul.active {
+      display: flex;
+    }
+
+    nav ul li {
+      border-bottom: 1px solid #34495e;
+    }
+
+    nav ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    header {
+      padding-top: 100px; /* Keeps content visible below sticky bar */
+      text-align: center;
+    }
+
+    header .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header img {
+      width: 150px;
+      border-radius: 50%;
+    }
+
+    header h1 {
+      margin-top: 20px;
+      font-size: 2em;
+    }
+
+    header p {
+      font-size: 1.2em;
+    }
+
+    /* Optional: Responsive behavior */
+    @media (min-width: 768px) {
       nav ul {
-        flex-direction: column;
-        align-items: center;
-        background: var(--primary-color);
-        position: fixed;
-        top: 60px;
-        right: 20px;
-        width: 200px;
-        border-radius: 8px;
-        padding: 20px 0;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-20px);
-        transition: all 0.3s ease;
-      }
-
-      nav ul.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      nav ul li {
-        width: 100%;
-        text-align: center;
-      }
-
-      nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: none;
       }
 
       .hamburger {
-        display: flex;
+        display: none;
+      }
+
+      nav ul li {
+        border: none;
+      }
+
+      nav ul li a {
+        padding: 10px 15px;
       }
     }
 
@@ -297,33 +273,34 @@
 </head>
 <body>
 
-<div class="sticky-bar">
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <nav>
-    <ul id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#implementations">Implementations</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</div>
+  <div class="sticky-bar">
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-<header style="margin-top: 70px">
-  <div class="container">
-    <img src="Hayss.jpg" alt="Arlene Macaraig">
-    <h1>Arlene Macaraig</h1>
-    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#implementations">Implementations</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-</header>
 
-<div class="sticky-bar">
+  <header>
+    <div class="container">
+      <img src="Hayss.jpg" alt="Arlene Macaraig">
+      <h1>Arlene Macaraig</h1>
+      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
+    </div>
+  </header>
+
+  <div class="sticky-bar">
   <div class="hamburger" id="hamburger">
     <div></div>
     <div></div>
@@ -498,15 +475,15 @@
 </div>
 
 
-  
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-  // Optional: Close menu when clicking outside
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Optional: Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
@@ -570,7 +547,7 @@ document.addEventListener('click', (e) => {
       behavior: 'smooth'
     });
   });
-</script>
+  </script>
 
 </body>
 </html>
