@@ -44,7 +44,6 @@
     }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; margin-bottom: 20px; }
-    
 
     .sticky-bar {
       position: fixed;
@@ -77,11 +76,11 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      display: none; /* Initially hidden */
+      display: none;
       flex-direction: column;
       background-color: var(--primary-color);
       position: absolute;
-      top: 60px; /* Below sticky bar */
+      top: 60px;
       right: 20px;
       border-radius: 5px;
       overflow: hidden;
@@ -102,8 +101,6 @@
       display: block;
     }
 
-
-    /* Optional: Responsive behavior */
     @media (min-width: 768px) {
       nav ul {
         display: flex !important;
@@ -280,14 +277,12 @@
   </style>
 </head>
 <body>
-
   <div class="sticky-bar">
     <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
       <div></div>
     </div>
-
     <nav>
       <ul id="nav-links">
         <li><a href="#home">Home</a></li>
@@ -483,6 +478,8 @@
 </div>
 
 
+
+  <!-- JavaScript to toggle hamburger menu -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -556,6 +553,5 @@ document.addEventListener('click', (e) => {
     });
   });
   </script>
-
 </body>
 </html>
