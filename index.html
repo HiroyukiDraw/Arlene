@@ -45,15 +45,17 @@
     }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; margin-bottom: 20px; }
-    
+
     .sticky-bar {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       background: var(--primary-color);
       padding: 10px 20px;
       z-index: 1000;
       display: flex;
-      justify-content: center; /* Center the navigation */
+      justify-content: center;
       align-items: center;
     }
 
@@ -88,6 +90,7 @@
       cursor: pointer;
       gap: 5px;
       position: absolute;
+      top: 10px;
       right: 20px;
     }
 
@@ -103,7 +106,7 @@
         align-items: center;
         background: var(--primary-color);
         position: fixed;
-        top: 70px;
+        top: 60px;
         right: 20px;
         width: 200px;
         border-radius: 8px;
@@ -137,170 +140,9 @@
         display: flex;
       }
     }
-
-    section {
-      padding: 60px 0;
-      border-bottom: 1px solid #ddd;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-    section h3 {
-      font-size: 1.4rem;
-      margin-top: 30px;
-      color: var(--accent-color);
-    }
-    ul { padding-left: 20px; margin-top: 10px; }
-    ul li { margin-bottom: 10px; }
-    .image-gallery {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .image-gallery img {
-      width: 30%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .testimonial-section {
-      background-color: #ffffff;
-      padding: 60px 0;
-      border-top: 1px solid #ddd;
-    }
-    .testimonial-section h2 {
-      color: var(--primary-color);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .testimonial {
-      max-width: 700px;
-      margin: auto;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #555;
-      border-left: 5px solid var(--accent-color);
-      padding-left: 20px;
-    }
-    form {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    form input,
-    form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    form button {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    form button:hover { background: #2980b9; }
-    .success-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent-color);
-      color: white;
-      padding: 20px 40px;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      z-index: 1000;
-    }
-    .social-links {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .social-links a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .social-links a:hover { color: var(--accent-color); }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 20px;
-    }
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
-    #backToTop:hover { background-color: #2980b9; }
-    .skill-box {
-      display: inline-block;
-      background: #e0f0fb;
-      border: 1px solid #3498db;
-      color: #2c3e50;
-      padding: 8px 12px;
-      margin: 5px 5px 10px 0;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .skill-box:hover {
-      background-color: #3498db;
-      color: white;
-      transform: scale(1.1);
-    }
-    .btn {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .btn:hover { background-color: #2980b9; transform: scale(1.05); }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <img src="Hayss.jpg" alt="Arlene Macaraig">
-    <h1>Arlene Macaraig</h1>
-    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
-  </div>
-</header>
 
 <div class="sticky-bar">
   <div class="hamburger" id="hamburger">
@@ -308,7 +150,6 @@
     <div></div>
     <div></div>
   </div>
-
   <nav>
     <ul id="nav-links">
       <li><a href="#home">Home</a></li>
@@ -320,234 +161,20 @@
     </ul>
   </nav>
 </div>
-<section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
+
+<header style="margin-top: 70px">
   <div class="container">
-    <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">Welcome to My Portfolio</h2>
-      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #555;">
-        I'm Arlene Macaraig, a Senior Accounts Payable Specialist and SAP L1 Support professional with over 18 years of expertise. Explore my background, achievements, and how I can help streamline financial processes.
-      </p>
-      <a href="#about" class="btn">Learn more about me</a>
+    <img src="Hayss.jpg" alt="Arlene Macaraig">
+    <h1>Arlene Macaraig</h1>
+    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
   </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>Motivated and results-driven Senior Accounts Payable Specialist - Travel & Expense, combining 18 yrs of expertise in managing financial transactions that includes procurement, invoicing, payment, reconciliation. Offering a strong foundation in data analysis, and written communication skills, with a proven ability to drive efficiency, deliver successful outcomes and collaborate within cross-functional teams.</p>
-    <h3>Competencies</h3>
-    <ul>
-      <li>Experience with SAP Concur is required. Thorough, in-depth technical understanding of the SAP Concur product</li>
-      <li>Experience in the end-to-end Travel & Expense process</li>
-      <li>Exposure to ERP platforms - SAP preferred</li>
-      <li>Above average English communication skills, both verbal and written</li>
-      <li>Adept in data presentation, and analysis and able to drive discussions from insights generated</li>
-      <li>Highly analytical and comprehensive problem-solving skills</li>
-      <li>Effective communication skills - able to interact with multiple stakeholders both internal and external</li>
-      <li>Willingness to learn different systems and take on other tasks as may be assigned</li>
-      <li>Great sense of urgency and ability to step up whenever the need arises</li>
-      <li>Positive attitude and exemplary self-leadership skills</li>
-      <li>Self-motivated, independent, and can work with minimal supervision</li>
-      <li>Collaborative and team-oriented</li>
-      <li>Showcases professionalism and a role model to more junior staff</li>
-      <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
-    </ul>
-
-    <h3>Key Skills:</h3>
-    <div>
-      <span class="skill-box">Expense Reporting</span>
-      <span class="skill-box">Expense Policy Compliance</span>
-      <span class="skill-box">Integration with ERP Systems</span>
-      <span class="skill-box">Travel Management</span>
-      <span class="skill-box">System Troubleshooting</span>
-      <span class="skill-box">Data Analysis & Reporting</span>
-      <span class="skill-box">Process Optimization</span>
-      <span class="skill-box">Invoice Processing</span>
-      <span class="skill-box">Vendor Management</span>
-      <span class="skill-box">Reconciliation</span>
-      <span class="skill-box">Compliance & Accuracy</span>
-      <span class="skill-box">Data Entry & Management</span>
-      <span class="skill-box">Automation Tools</span>
-      <span class="skill-box">Attention to Detail</span>
-      <span class="skill-box">Problem Solving</span>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <h2>Professional Portfolio</h2>
-      <h3>Project 1 – SAP Concur SME</h3>
-            <ul>
-                <li>Act as the go-to expert for all things SAP Concur.</li>
-                <li>Provide functional and technical support to users.</li>
-                <li>Lead the implementation and configuration of Concur modules.</li>
-                <li>Develop and deliver training materials and user guides.</li>
-                <li>Analyze business processes and recommend enhancements.</li>
-                <li>Collaborate cross-functionally with other departments.</li>
-                <li>Ensure compliance with policies, tax laws, and audit requirements.</li>
-                <li>Perform knowledge transfer and best practices sharing.</li>
-                <li>Prepare and provide analysis or insights on reports.</li>
-                <li>Monitor expense interface to SAP.</li>
-            </ul>
-            <h3>Project 2 – Travel & Expense (T&E) Accountant</h3>
-            <ul>
-                <li>Review and audit employee expense reports.</li>
-                <li>Manage corporate card programs and resolve discrepancies.</li>
-                <li>Monitor transactions for fraud and compliance.</li>
-                <li>Partner with HR, payroll, and accounts payable teams.</li>
-                <li>Support month-end and year-end processes.</li>
-                <li>Administer and maintain T&E systems.</li>
-                <li>Lead policy training and user support.</li>
-                <li>Analyze trends and generate reports for cost control.</li>
-            </ul>
-            <h3>Project 3 – Accounts Payable Accountant</h3>
-            <ul>
-                <li>Oversee end-to-end AP processes.</li>
-                <li>Ensure compliance with internal controls and legal regulations.</li>
-                <li>Manage vendor relationships and resolve discrepancies.</li>
-                <li>Perform reconciliations and closing procedures.</li>
-                <li>Assist in system implementations or upgrades.</li>
-                <li>Analyze data to optimize cash flow and working capital.</li>
-                <li>Support audit requests and documentation.</li>
-            </ul>
-  </div>
-</section>
-
-<section id="implementations">
-  <div class="container">
-    <h2>Project Implementations</h2>
-      <h3>Asia Pacific (APAC) Implementations</h3>
-      <ul>
-                 <li><strong>🇸🇬 Singapore:</strong> EssilorLuxottica Asia Pacific Pte Ltd, Essilor Singapore, Optical Supply Singapore, Optical Supply Asia, Signet Armorlite AMERA Pte., Ltd, Integrated Lens Technology Pte Ltd</li>
-                <li><strong>🇹🇭 Thailand:</strong> Transitions Optical Thailand, EssilorLuxottica Wholesale (Thailand) Ltd, Luxottica Thailand Ltd</li>
-                <li><strong>🇮🇳 India:</strong> Essilor India Private Limited, Essilor Manufacturing India Private Limited, Rayban Sun Optics India Private Limited, Luxottica India Eyewear Private Limited</li>
-                <li><strong>🇵🇭 Philippines:</strong> Essilor Shared Services, Phil., Inc., Essilor Manufacturing Phils., Inc., Optodev, Inc., Essilor Philippines Optical Distribution, Inc</li>
-                <li><strong>🇦🇺 Australia:</strong> Essilor Australia Pty, Luxottica South Pacific Holding, LUXOTTICA RETAIL AUSTRALIA PTY LTD</li>
-                <li><strong>🇳🇿 New Zealand:</strong> Essilor New Zealand, LUXOTTICA RETAIL NEW ZEALAND LIMITED</li>
-                <li><strong>🇰🇷 South Korea:</strong> Luxottica Korea Ltd</li>
-                <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
-            </ul>
-      <div class="image-gallery">
-        <img src="eyy3.jpg" alt="Implementation 1">
-        <img src="eyy2.jpg" alt="Implementation 2">
-        <img src="eyy.jpg" alt="Implementation 3">
-      </div>
-  </div>
-</section>
-
-<section id="testimonials" class="testimonial-section">
-  <div class="container">
-   <h2>Testimonials</h2>
-      <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
-            <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
-            <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
-   
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-     <h2>Contact Me</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-            <div class="social-links">
-        <a href="https://www.instagram.com/arlene_0831/">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100072551652323">Facebook</a>
-      </div>
-  </div>
-</section>
-
-<div class="success-message" id="successMessage">Your message has been sent!</div>
-
-<!-- Back to top button -->
-<button id="backToTop">&#8679;</button>
-
-<footer>
-  <div class="container">
-    &copy; 2025 Arlene Macaraig | All Rights Reserved
-  </div>
-
-<!-- Add zoom modal container -->
-<div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
-  <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
-</div>
-
+</header>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-// Optional: Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
-    }
-  });
-
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
-
-  window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-      navLinks.style.top = (70 + window.scrollY) + 'px';
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      navLinks.style.top = '70px';
-    }
-  });
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    form.reset();
-    successMessage.style.display = 'block';
-    setTimeout(() => {
-      successMessage.style.display = 'none';
-    }, 3000);
-  });
-
-   // Image zoom modal functionality
-   const galleryImages = document.querySelectorAll('.image-gallery img');
-  const imageModal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      imageModal.style.display = 'flex';
-    });
-  });
-
-  imageModal.addEventListener('click', () => {
-    imageModal.style.display = 'none';
-  });
-
-  // Back to top button functionality
-  const backToTop = document.getElementById('backToTop');
-
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      backToTop.style.display = 'block';
-    } else {
-      backToTop.style.display = 'none';
-    }
-  });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
 </script>
 
