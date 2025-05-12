@@ -7,13 +7,44 @@
   <style>
     :root {
       --primary-color: #2c3e50;
-      --text-color: #ffffff;
+      --accent-color: #3498db;
+      --background-light: #f9f9f9;
+      --text-color: #333;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-family);
+      background: var(--background-light);
+      color: var(--text-color);
+      line-height: 1.6;
     }
+    .container { width: 90%; max-width: 1100px; margin: auto; padding: 20px; }
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0 20px 0;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      outline: 3px solid var(--accent-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; margin-bottom: 20px; }
+    
 
     .sticky-bar {
       position: fixed;
@@ -71,29 +102,6 @@
       display: block;
     }
 
-    header {
-      padding-top: 100px; /* Keeps content visible below sticky bar */
-      text-align: center;
-    }
-
-    header .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    header img {
-      width: 150px;
-      border-radius: 50%;
-    }
-
-    header h1 {
-      margin-top: 20px;
-      font-size: 2em;
-    }
-
-    header p {
-      font-size: 1.2em;
-    }
 
     /* Optional: Responsive behavior */
     @media (min-width: 768px) {
