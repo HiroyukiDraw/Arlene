@@ -61,51 +61,28 @@
   align-items: center;
 }
 
+/* Initially show the nav for large screens */
 nav {
-  width: 100%; /* Add this line */
-  display: flex;
+  display: flex; /* Always show the navigation on large screens */
   justify-content: center;
   align-items: center;
 }
 
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  align-items: center;
-}
-
-nav ul li a {
-  color: #2c3e50;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background: var(--accent-color);
-}
-
+/* Hide the hamburger menu on large screens */
 .hamburger {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  position: absolute;
-  right: 20px;
-  z-index: 1001;
+  display: none;
 }
 
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background: white;
-}
-
+/* Styles for small screens */
 @media (max-width: 768px) {
+  nav {
+    display: none; /* Hide the full nav by default on small screens */
+  }
+
+  .hamburger {
+    display: flex; /* Show the hamburger menu */
+  }
+
   nav ul {
     flex-direction: column;
     align-items: center;
@@ -139,10 +116,6 @@ nav ul li a:hover {
     display: block;
     width: 100%;
     padding: 10px 0;
-  }
-
-  .hamburger {
-    display: flex;
   }
 }
 
