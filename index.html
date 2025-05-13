@@ -1,15 +1,19 @@
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arlene Macaraig</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support">
+  <title>Arlene Macaraig | Portfolio</title>
   <style>
     :root {
       --primary-color: #2c3e50;
       --accent-color: #3498db;
       --background-light: #f9f9f9;
-      --text-color: #fff; /* Made text white for visibility on dark background */
+      --text-color: #333;
       --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,267 +49,266 @@
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; margin-bottom: 20px; }
 
-    .sticky-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--primary-color);
-      padding: 10px 20px;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+```
+.sticky-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center; /* Center the navigation */
+  align-items: center;
+}
 
-    .hamburger {
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-    }
+nav {
+  display: flex;
+  align-items: center;
+}
 
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: white; /* Match the white nav text */
-    }
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: none;
-      flex-direction: column;
-      background-color: var(--primary-color);
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      border-radius: 5px;
-      overflow: hidden;
-    }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
 
-    nav ul.active {
-      display: flex;
-    }
+nav ul li a:hover {
+  background: var(--accent-color);
+}
 
-    nav ul li {
-      border-bottom: 1px solid #34495e;
-    }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  position: absolute;
+  right: 20px;
+}
 
-    nav ul li a {
-      color: white; /* Make links visible */
-      text-decoration: none;
-      padding: 10px 20px;
-      display: block;
-    }
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
 
-    @media (min-width: 768px) {
-      nav ul {
-        display: flex !important;
-        flex-direction: row;
-        position: static;
-        background: none;
-      }
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-color);
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+    padding: 20px 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+  }
 
-      .hamburger {
-        display: none;
-      }
+  nav ul.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 
-      nav ul li {
-        border: none;
-      }
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
 
-      nav ul li a {
-        padding: 10px 15px;
-      }
-    }
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
 
-    /* Remaining styles stay the same */
-            section {
-      padding: 60px 0;
-      border-bottom: 1px solid #ddd;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-    section h3 {
-      font-size: 1.4rem;
-      margin-top: 30px;
-      color: var(--accent-color);
-    }
-    ul { padding-left: 20px; margin-top: 10px; }
-    ul li { margin-bottom: 10px; }
-    .image-gallery {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .image-gallery img {
-      width: 30%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .testimonial-section {
-      background-color: #ffffff;
-      padding: 60px 0;
-      border-top: 1px solid #ddd;
-    }
-    .testimonial-section h2 {
-      color: var(--primary-color);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .testimonial {
-      max-width: 700px;
-      margin: auto;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #555;
-      border-left: 5px solid var(--accent-color);
-      padding-left: 20px;
-    }
-    form {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    form input,
-    form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    form button {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    form button:hover { background: #2980b9; }
-    .success-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent-color);
-      color: white;
-      padding: 20px 40px;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      z-index: 1000;
-    }
-    .social-links {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .social-links a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .social-links a:hover { color: var(--accent-color); }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 20px;
-    }
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
-    #backToTop:hover { background-color: #2980b9; }
-    .skill-box {
-      display: inline-block;
-      background: #e0f0fb;
-      border: 1px solid #3498db;
-      color: #2c3e50;
-      padding: 8px 12px;
-      margin: 5px 5px 10px 0;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .skill-box:hover {
-      background-color: #3498db;
-      color: white;
-      transform: scale(1.1);
-    }
-    .btn {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .btn:hover { background-color: #2980b9; transform: scale(1.05); }
+  .hamburger {
+    display: flex;
+  }
+}
+
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid #ddd;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+section h3 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  color: var(--accent-color);
+}
+ul { padding-left: 20px; margin-top: 10px; }
+ul li { margin-bottom: 10px; }
+.image-gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.image-gallery img {
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.testimonial-section {
+  background-color: #ffffff;
+  padding: 60px 0;
+  border-top: 1px solid #ddd;
+}
+.testimonial-section h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.testimonial {
+  max-width: 700px;
+  margin: auto;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+  border-left: 5px solid var(--accent-color);
+  padding-left: 20px;
+}
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form input,
+form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+form button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+form button:hover { background: #2980b9; }
+.success-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent-color);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  z-index: 1000;
+}
+.social-links {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.social-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.social-links a:hover { color: var(--accent-color); }
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 20px;
+}
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+#backToTop:hover { background-color: #2980b9; }
+.skill-box {
+  display: inline-block;
+  background: #e0f0fb;
+  border: 1px solid #3498db;
+  color: #2c3e50;
+  padding: 8px 12px;
+  margin: 5px 5px 10px 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.skill-box:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+.btn {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn:hover { background-color: #2980b9; transform: scale(1.05); }
+```
+
   </style>
 </head>
 <body>
-  <div class="sticky-bar">
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#implementations">Implementations</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+
+<header>
+  <div class="container">
+    <img src="Hayss.jpg" alt="Arlene Macaraig">
+    <h1>Arlene Macaraig</h1>
+    <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
   </div>
+</header>
 
-  <header>
-    <div class="container">
-      <img src="Hayss.jpg" alt="Arlene Macaraig">
-      <h1>Arlene Macaraig</h1>
-      <p>Sr. Accounts Payable Specialist | SAP L1 Support</p>
-    </div>
-  </header>
-
-  <!-- Your remaining content continues here... -->
-    <div class="sticky-bar">
+<div class="sticky-bar">
   <div class="hamburger" id="hamburger">
     <div></div>
     <div></div>
@@ -355,24 +358,27 @@
       <li>Proficiency in MS Office applications particularly Microsoft Excel</li>
     </ul>
 
-    <h3>Key Skills:</h3>
-    <div>
-      <span class="skill-box">Expense Reporting</span>
-      <span class="skill-box">Expense Policy Compliance</span>
-      <span class="skill-box">Integration with ERP Systems</span>
-      <span class="skill-box">Travel Management</span>
-      <span class="skill-box">System Troubleshooting</span>
-      <span class="skill-box">Data Analysis & Reporting</span>
-      <span class="skill-box">Process Optimization</span>
-      <span class="skill-box">Invoice Processing</span>
-      <span class="skill-box">Vendor Management</span>
-      <span class="skill-box">Reconciliation</span>
-      <span class="skill-box">Compliance & Accuracy</span>
-      <span class="skill-box">Data Entry & Management</span>
-      <span class="skill-box">Automation Tools</span>
-      <span class="skill-box">Attention to Detail</span>
-      <span class="skill-box">Problem Solving</span>
-    </div>
+```
+<h3>Key Skills:</h3>
+<div>
+  <span class="skill-box">Expense Reporting</span>
+  <span class="skill-box">Expense Policy Compliance</span>
+  <span class="skill-box">Integration with ERP Systems</span>
+  <span class="skill-box">Travel Management</span>
+  <span class="skill-box">System Troubleshooting</span>
+  <span class="skill-box">Data Analysis & Reporting</span>
+  <span class="skill-box">Process Optimization</span>
+  <span class="skill-box">Invoice Processing</span>
+  <span class="skill-box">Vendor Management</span>
+  <span class="skill-box">Reconciliation</span>
+  <span class="skill-box">Compliance & Accuracy</span>
+  <span class="skill-box">Data Entry & Management</span>
+  <span class="skill-box">Automation Tools</span>
+  <span class="skill-box">Attention to Detail</span>
+  <span class="skill-box">Problem Solving</span>
+</div>
+```
+
   </div>
 </section>
 
@@ -444,7 +450,7 @@
       <p class="testimonial">“Arlene's expertise in SAP Concur implementation and Accounts Payable processes helped streamline our operations significantly. Her dedication and professionalism were instrumental in our success.” – Former Colleague</p><br>
             <p class="testimonial">“Arlene has an exceptional eye for detail and ensures that every task is completed with efficiency and precision. She is a great asset to any team.” – Project Manager</p><br>
             <p class="testimonial">“Working with Arlene on global implementations was a pleasure. Her cross-cultural communication skills and technical know-how make her truly outstanding.” – International Business Partner</p>
-   
+
   </div>
 </section>
 
@@ -467,7 +473,8 @@
 <div class="success-message" id="successMessage">Your message has been sent!</div>
 
 <!-- Back to top button -->
-<button id="backToTop">&#8679;</button>
+
+<button id="backToTop">⇧</button>
 
 <footer>
   <div class="container">
@@ -475,20 +482,20 @@
   </div>
 
 <!-- Add zoom modal container -->
+
 <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
   <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
 </div>
 
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-        // Optional: Close menu when clicking outside
+// Optional: Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
@@ -552,6 +559,7 @@ document.addEventListener('click', (e) => {
       behavior: 'smooth'
     });
   });
-  </script>
+</script>
+
 </body>
 </html>
