@@ -49,7 +49,7 @@
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
     header p { font-size: 1.2rem; margin-bottom: 20px; }
 
-
+/* Sticky Bar */
 .sticky-bar {
   position: sticky;
   top: 0;
@@ -57,26 +57,30 @@
   padding: 10px 20px;
   z-index: 1000;
   display: flex;
+  justify-content: space-between; /* Changed to space-between */
+  align-items: center;
+}
+
+/* Ensure nav and hamburger are aligned */
+nav {
+  display: flex;
   justify-content: center; /* Center the navigation */
   align-items: center;
+  width: 100%; /* Make nav occupy full width */
 }
 
-/* Initially show the nav for large screens */
-nav {
-  display: flex; /* Always show the navigation on large screens */
-  justify-content: center;
-  align-items: center;
-}
-
-/* Hide the hamburger menu on large screens */
 .hamburger {
   display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 21px;
 }
 
-/* Styles for small screens */
+/* Small screen styles */
 @media (max-width: 768px) {
   nav {
-    display: none; /* Hide the full nav by default on small screens */
+    display: none; /* Hide the full nav on small screens */
   }
 
   .hamburger {
@@ -118,6 +122,7 @@ nav {
     padding: 10px 0;
   }
 }
+
 
 section {
   padding: 60px 0;
