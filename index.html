@@ -9,7 +9,7 @@
       --primary-color: #2c3e50;
       --accent-color: #3498db;
       --background-light: #f9f9f9;
-      --text-color: #333;
+      --text-color: #fff; /* Made text white for visibility on dark background */
       --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,7 +69,7 @@
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: var(--text-color);
+      background-color: white; /* Match the white nav text */
     }
 
     nav ul {
@@ -95,7 +95,7 @@
     }
 
     nav ul li a {
-      color: var(--text-color);
+      color: white; /* Make links visible */
       text-decoration: none;
       padding: 10px 20px;
       display: block;
@@ -122,7 +122,8 @@
       }
     }
 
-        section {
+    /* Remaining styles stay the same */
+            section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
     }
@@ -303,7 +304,8 @@
     </div>
   </header>
 
-  <div class="sticky-bar">
+  <!-- Your remaining content continues here... -->
+    <div class="sticky-bar">
   <div class="hamburger" id="hamburger">
     <div></div>
     <div></div>
@@ -478,8 +480,6 @@
 </div>
 
 
-
-  <!-- JavaScript to toggle hamburger menu -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -488,7 +488,7 @@
       navLinks.classList.toggle('active');
     });
 
-    // Optional: Close menu when clicking outside
+        // Optional: Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
