@@ -69,12 +69,62 @@ nav {
   width: 100%; /* Make nav occupy full width */
 }
 
+/* Ensure nav is displayed in a row */
+  nav ul {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    gap: 30px; /* Add some space between each item */
+    list-style-type: none; /* Removes bullet points */
+  }
+
+  nav ul li {
+    margin: 0; /* Ensures no extra spacing around items */
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: var(--accent-color);
+  }
+
+/* Sticky Bar */
+.sticky-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Changed to space-between */
+  align-items: center;
+}
+
+/* Align hamburger icon to the left of the sticky bar */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
   height: 21px;
+  cursor: pointer;
+  position: absolute; /* Align to the sticky bar */
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
 }
 
 /* Small screen styles */
@@ -92,7 +142,7 @@ nav {
     align-items: center;
     background: var(--primary-color);
     position: fixed;
-    top: 70px;
+    top: 70px; /* Adjust position relative to the sticky bar */
     right: 20px;
     width: 200px;
     border-radius: 8px;
@@ -119,10 +169,15 @@ nav {
   nav ul li a {
     display: block;
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0; /* Increased padding for better touch targets */
+    font-size: 1.1rem; /* Slightly larger font size */
+  }
+
+  /* Increase the padding of the sticky bar */
+  .sticky-bar {
+    padding: 15px 25px; /* Increased padding for a bigger sticky bar */
   }
 }
-
 
 section {
   padding: 60px 0;
@@ -276,7 +331,7 @@ footer {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .btn:hover { background-color: #2980b9; transform: scale(1.05); }
-```
+
 
   </style>
 </head>
@@ -471,19 +526,36 @@ footer {
 
 <script>
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+  const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+  // Toggle active class on hamburger click
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 
-// Optional: Close menu when clicking outside
-document.addEventListener('click', (e) => {
+  // Adjust position and visibility on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      navLinks.style.top = '70px'; // Reset the positioning if necessary
+      navLinks.classList.remove('active'); // Hide the menu when resizing to larger screen
+    } else {
+      navLinks.style.top = ''; // Allow for proper behavior on smaller screens
+    }
+  });
+
+  // Close menu when clicking outside of the hamburger or menu
+  document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
     }
   });
 
+  // Optional: Adjust position on scroll for smaller screens
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+      navLinks.style.top = (70 + window.scrollY) + 'px';
+    }
+  });
   const form = document.getElementById('contactForm');
   const successMessage = document.getElementById('successMessage');
 
