@@ -26,7 +26,6 @@
       color: white;
       padding: 40px 0 20px 0;
       text-align: center;
-      position: relative;
     }
     header img {
       width: 150px;
@@ -84,8 +83,6 @@
       list-style-type: none;
     }
 
-    nav ul li { margin: 0; }
-
     nav ul li a {
       color: white;
       text-decoration: none;
@@ -118,7 +115,6 @@
       }
     }
 
-    /* The rest of your unchanged style continues here... */
     section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
@@ -135,28 +131,41 @@
     }
     ul { padding-left: 20px; margin-top: 10px; }
     ul li { margin-bottom: 10px; }
+
     .image-gallery {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 15px;
       margin-top: 20px;
     }
 
     .zoomable {
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      cursor: zoom-in;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
 
-.zoomable.zoomed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(2);
-  cursor: zoom-out;
-  z-index: 1001;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-}
-  
+    .zoomable.zoomed {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 90vw;
+      height: auto;
+      transform: translate(-50%, -50%) scale(1);
+      cursor: zoom-out;
+      z-index: 2000;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      background: white;
+      border-radius: 12px;
+    }
+
     .testimonial-section {
       background-color: #ffffff;
       padding: 60px 0;
@@ -176,8 +185,8 @@
       border-left: 5px solid var(--accent-color);
       padding-left: 20px;
     }
-    
-   .form-container {
+
+    .form-container {
       height: 100%;
       display: flex;
       justify-content: center;
@@ -185,7 +194,6 @@
     }
 
     form {
-      /* Your form styles here */
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -197,6 +205,8 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
+      width: 100%;
+      margin-bottom: 10px;
     }
     form button {
       background: var(--accent-color);
@@ -209,7 +219,7 @@
       font-weight: bold;
     }
     form button:hover { background: #2980b9; }
-    
+
     .social-links {
       margin-top: 30px;
       display: flex;
@@ -223,13 +233,14 @@
       font-size: 1.2rem;
     }
     .social-links a:hover { color: var(--accent-color); }
+
     footer {
       background: #eee;
       text-align: center;
       padding: 20px;
     }
-   
-   .skill-box {
+
+    .skill-box {
       display: inline-block;
       background: #e0f0fb;
       border: 1px solid #3498db;
@@ -240,7 +251,6 @@
       font-size: 0.95rem;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
-    
     .skill-box:hover {
       background-color: #3498db;
       color: white;
@@ -260,8 +270,10 @@
       transform: scale(1.05);
     }
   </style>
+ 
 </head>
 <body>
+<!-- HTML continues unchanged... -->
   <header>
     <div class="container">
       <img src="Hayss.jpg" alt="Arlene Macaraig" />
@@ -472,47 +484,21 @@
       navLinks.classList.remove('active');
     });
 
-
-     
-
-
-
-   // Image zoom modal functionality
-   document.querySelectorAll('.zoomable').forEach(image => {
-    image.addEventListener('click', () => {
-      // Toggle zoom class
-      image.classList.toggle('zoomed');
-
-      // Remove zoom from others if one is clicked
-      document.querySelectorAll('.zoomable').forEach(otherImage => {
-        if (otherImage !== image) {
-          otherImage.classList.remove('zoomed');
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+      const zoomables = document.querySelectorAll(".zoomable");
+      zoomables.forEach(img => {
+        img.addEventListener("click", () => {
+          if (img.classList.contains("zoomed")) {
+            img.classList.remove("zoomed");
+          } else {
+            document.querySelectorAll(".zoomable.zoomed").forEach(i => i.classList.remove("zoomed"));
+            img.classList.add("zoomed");
+          }
+        });
       });
     });
 
-    // Optional: click outside to unzoom
-    document.addEventListener('click', function (e) {
-      if (!image.contains(e.target) && !e.target.classList.contains('zoomable')) {
-        image.classList.remove('zoomed');
-      }
-    });
-  });
-
-  // Back to top logic
-  const backToTopBtn = document.getElementById("backToTop");
-
-  window.onscroll = () => {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  };
-
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    
   </script>
 </body>
 </html>
