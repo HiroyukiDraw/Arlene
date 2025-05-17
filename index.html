@@ -141,17 +141,7 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-   .zoomable {
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
-
-.zoomable.zoomed {
-  cursor: zoom-out;
-  transform: scale(2);
-  z-index: 999;
-  position: relative;
-}
+  
     .testimonial-section {
       background-color: #ffffff;
       padding: 60px 0;
@@ -473,9 +463,24 @@
 
 
    // Image zoom modal functionality
-  document.querySelectorAll('.zoomable').forEach(img => {
-    img.addEventListener('click', () => {
-      img.classList.toggle('zoomed');
+   document.querySelectorAll('.zoomable').forEach(image => {
+    image.addEventListener('click', () => {
+      // Toggle zoom class
+      image.classList.toggle('zoomed');
+
+      // Remove zoom from others if one is clicked
+      document.querySelectorAll('.zoomable').forEach(otherImage => {
+        if (otherImage !== image) {
+          otherImage.classList.remove('zoomed');
+        }
+      });
+    });
+
+    // Optional: click outside to unzoom
+    document.addEventListener('click', function (e) {
+      if (!image.contains(e.target) && !e.target.classList.contains('zoomable')) {
+        image.classList.remove('zoomed');
+      }
     });
   });
 
