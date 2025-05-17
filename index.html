@@ -465,26 +465,28 @@
 
   
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-        navLinks.classList.remove('active');
-      }
-    });
-
-let lastScrollTop = 0;
 let hasScrolled = false;
 
-window.addEventListener("scroll", function () {
-  const menu = document.querySelector(".open"); // Change selector if needed
-  if (menu && !hasScrolled) {
-    menu.style.display = "none"; // or menu.classList.remove('open') if toggling
+hamburger.addEventListener("click", () => {
+  // Reset scroll flag to allow toggling again
+  hasScrolled = false;
+
+  if (menu.classList.contains("show")) {
+    menu.classList.remove("show");
+    setTimeout(() => menu.classList.add("hidden"), 300);
+  } else {
+    menu.classList.remove("hidden");
+    setTimeout(() => menu.classList.add("show"), 10);
+  }
+});
+
+window.addEventListener("scroll", () => {
+  if (!hasScrolled && menu.classList.contains("show")) {
+    menu.classList.remove("show");
+    setTimeout(() => menu.classList.add("hidden"), 300);
     hasScrolled = true;
   }
 });
