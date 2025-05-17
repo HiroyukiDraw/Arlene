@@ -469,8 +469,8 @@
 
 
   <!-- Success message & Footer + Zoom modal -->
-  <div id="imageModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
-  <img id="modalImage" src="" style="max-width:90%; max-height:90%; box-shadow:0 0 20px #fff; border-radius:10px;">
+  <div id="imageModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+  <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border:5px solid white; border-radius:10px;" />
 </div>
 
 <!-- Back to Top Button -->
@@ -521,17 +521,19 @@
 
 
   // Zoomable image logic
-  document.querySelectorAll('.image-gallery img').forEach(img => {
+  const images = document.querySelectorAll('.image-gallery img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+
+  images.forEach(img => {
     img.addEventListener('click', () => {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImage');
       modalImg.src = img.src;
       modal.style.display = 'flex';
     });
   });
 
-  document.getElementById('imageModal').addEventListener('click', () => {
-    document.getElementById('imageModal').style.display = 'none';
+  modal.addEventListener('click', () => {
+    modal.style.display = 'none';
   });
 
   // Back to top logic
