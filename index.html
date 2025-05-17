@@ -141,15 +141,17 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-    .image-gallery img {
-      width: 30%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+   .zoomable {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.zoomable.zoomed {
+  cursor: zoom-out;
+  transform: scale(2);
+  z-index: 999;
+  position: relative;
+}
     .testimonial-section {
       background-color: #ffffff;
       padding: 60px 0;
@@ -202,19 +204,7 @@
       font-weight: bold;
     }
     form button:hover { background: #2980b9; }
-    .success-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent-color);
-      color: white;
-      padding: 20px 40px;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      z-index: 1000;
-    }
+    
     .social-links {
       margin-top: 30px;
       display: flex;
@@ -233,33 +223,8 @@
       text-align: center;
       padding: 20px;
     }
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
-    #backToTop:hover { background-color: #2980b9; }
-    .skill-box {
-      display: inline-block;
-      background: #e0f0fb;
-      border: 1px solid #3498db;
-      color: #2c3e50;
-      padding: 8px 12px;
-      margin: 5px 5px 10px 0;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
+   
+  
     .skill-box:hover {
       background-color: #3498db;
       color: white;
@@ -420,9 +385,9 @@
                 <li><strong>🇯🇵 Japan:</strong> Washin Optical Co., Ltd.</li>
             </ul>
       <div class="image-gallery">
-        <img src="eyy3.jpg" alt="Implementation 1">
-        <img src="eyy2.jpg" alt="Implementation 2">
-        <img src="eyy.jpg" alt="Implementation 3">
+        <img src="eyy3.jpg" alt="Implementation 1" class="zoomable">
+        <img src="eyy2.jpg" alt="Implementation 2" class="zoomable">
+        <img src="eyy.jpg" alt="Implementation 3" class="zoomable">
       </div>
   </div>
 </section>
@@ -476,9 +441,7 @@
     </div>
   </footer>
 
-   <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
-  <img id="modalImg" src="" alt="Zoomed Image" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
-</div>
+ 
 
   
   <script>
@@ -494,47 +457,16 @@
     });
 
 
-        const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
+     
 
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-        navLinks.style.top = (70 + window.scrollY) + 'px';
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        navLinks.style.top = '70px';
-      }
-    });
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.reset();
-      successMessage.style.display = 'block';
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 3000);
-    });
 
 
    // Image zoom modal functionality
-   const galleryImages = document.querySelectorAll('.image-gallery img');
-  const imageModal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-
-  galleryImages.forEach(img => {
+  document.querySelectorAll('.zoomable').forEach(img => {
     img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      imageModal.style.display = 'flex';
+      img.classList.toggle('zoomed');
     });
   });
-
-  imageModal.addEventListener('click', () => {
-    imageModal.style.display = 'none';
-  });
-
 
   // Back to top logic
   const backToTopBtn = document.getElementById("backToTop");
