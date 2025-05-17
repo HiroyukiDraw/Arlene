@@ -492,6 +492,31 @@
       }
     });
 
+    // Ensure menu appears relative to current scroll position (stay in view)
+const adjustMenuPosition = () => {
+  if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+    const stickyBarHeight = document.querySelector('.sticky-bar').offsetHeight;
+    navLinks.style.top = `${window.scrollY + stickyBarHeight}px`;
+  }
+};
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  adjustMenuPosition(); // show where screen is
+});
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active'); // hide menu on scroll
+  }
+});
+
+// Optional: reposition on resize to be safe
+window.addEventListener('resize', adjustMenuPosition);
+
+
+    
+
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
 
