@@ -6,8 +6,7 @@
   <meta name="description" content="Arlene Macaraig Portfolio - Sr. Accounts Payable Specialist & SAP L1 Support" />
   <title>Arlene Macaraig | Portfolio</title>
   <style>
-    /* ... YOUR ENTIRE STYLE BLOCK UNCHANGED ... */
-        :root {
+    :root {
       --primary-color: #2c3e50;
       --accent-color: #3498db;
       --background-light: #f9f9f9;
@@ -119,7 +118,8 @@
       }
     }
 
-        section {
+    /* The rest of your unchanged style continues here... */
+    section {
       padding: 60px 0;
       border-bottom: 1px solid #ddd;
     }
@@ -274,7 +274,6 @@
       background-color: #2980b9;
       transform: scale(1.05);
     }
-    /* [Style code omitted here for brevity, it's unchanged from original] */
   </style>
 </head>
 <body>
@@ -304,7 +303,7 @@
     </nav>
   </div>
 
-  <!-- YOUR ENTIRE HTML CONTENT UNCHANGED -->
+  <!-- Your unchanged HTML content continues here -->
   <!-- [Sections: #home, #about, #portfolio, etc.] -->
       <section id="home" style="background: linear-gradient(to right, #fdfbfb, #ebedee); padding: 80px 0; text-align: center;">
   <div class="container">
@@ -465,7 +464,6 @@
   </div>
 
   
-
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -474,50 +472,12 @@
       navLinks.classList.toggle('active');
     });
 
-    document.addEventListener('click', function (event) {
-      const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
-      if (!isClickInside && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
+    window.addEventListener('scroll', () => {
+      navLinks.classList.remove('active');
     });
 
-    let lastScrollTop = 0;
-    let hasScrolled = false;
 
-    window.addEventListener("scroll", function () {
-      const menu = document.querySelector(".open");
-      if (menu && !hasScrolled) {
-        menu.style.display = "none";
-        hasScrolled = true;
-      }
-    });
-
-    // Ensure menu appears relative to current scroll position (stay in view)
-const adjustMenuPosition = () => {
-  if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-    const stickyBarHeight = document.querySelector('.sticky-bar').offsetHeight;
-    navLinks.style.top = `${window.scrollY + stickyBarHeight}px`;
-  }
-};
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  adjustMenuPosition(); // show where screen is
-});
-
-window.addEventListener('scroll', () => {
-  if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-    navLinks.classList.remove('active'); // hide menu on scroll
-  }
-});
-
-// Optional: reposition on resize to be safe
-window.addEventListener('resize', adjustMenuPosition);
-
-
-    
-
-    const form = document.getElementById('contactForm');
+        const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
 
     window.addEventListener('scroll', () => {
