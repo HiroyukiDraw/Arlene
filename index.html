@@ -478,6 +478,19 @@
       }
     });
 
+let lastScrollTop = 0;
+let hasScrolled = false;
+
+window.addEventListener("scroll", function () {
+  const menu = document.querySelector(".open"); // Change selector if needed
+  if (menu && !hasScrolled) {
+    menu.style.display = "none"; // or menu.classList.remove('open') if toggling
+    hasScrolled = true;
+  }
+});
+
+
+    
           const form = document.getElementById('contactForm');
   const successMessage = document.getElementById('successMessage');
 
