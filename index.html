@@ -465,31 +465,32 @@
 
   
   <script>
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
+const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
 
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  document.addEventListener('click', function (event) {
+    const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+    if (!isClickInside) {
+      navMenu.classList.remove('active');
+    }
+  });
+
+    let lastScrollTop = 0;
 let hasScrolled = false;
 
-hamburger.addEventListener("click", () => {
-  // Reset scroll flag to allow toggling again
-  hasScrolled = false;
-
-  if (menu.classList.contains("show")) {
-    menu.classList.remove("show");
-    setTimeout(() => menu.classList.add("hidden"), 300);
-  } else {
-    menu.classList.remove("hidden");
-    setTimeout(() => menu.classList.add("show"), 10);
-  }
-});
-
-window.addEventListener("scroll", () => {
-  if (!hasScrolled && menu.classList.contains("show")) {
-    menu.classList.remove("show");
-    setTimeout(() => menu.classList.add("hidden"), 300);
+window.addEventListener("scroll", function () {
+  const menu = document.querySelector(".open"); // Change selector if needed
+  if (menu && !hasScrolled) {
+    menu.style.display = "none"; // or menu.classList.remove('open') if toggling
     hasScrolled = true;
   }
 });
+
+
 
 
     
